@@ -1,0 +1,6044 @@
+TASK-4
+1
+Q)How to compare two JSON have the same properties without order?
+var obj1 = { name: "Person 1", age:5 };
+var obj2 = { age:5, name: "Person 1" };
+
+Ans:-
+
+code:-
+var obj1 = { name: "Person 1", age: 5 };
+var obj2 = { age: 5, name: "Person 1" };
+obj2 = obj1;
+console.log(obj2);
+if (obj1 === obj2) {
+    console.log("both are equal");
+} else {
+    console.log("both are not equal");
+}
+
+
+   OUTPUT:-
+
+Object
+script.js:6 both are equal
+
+
+
+
+
+2
+Q) Use the rest countries API url -> https://restcountries.eu/rest/v2/all and display all the country flags in console
+
+
+Code:-
+
+var xhr = new XMLHttpRequest();
+xhr.open("GET", "https://raw.githubusercontent.com/rvsp/restcountries-json-data/master/res-countries.json");
+
+xhr.send();
+
+//add a listener to process the request
+xhr.onload = function() {
+    //process the request and server will return the data
+    if (xhr.status >= 200 && xhr.status < 300) {
+        //conver the data raw data to js notation
+        var data = JSON.parse(xhr.response);
+        // console.log(data);
+
+        //Looping through the data
+        for (var i = 0; i < data.length; i++) {
+            var user = data[i];
+            console.log(`
+            flag:${data[i].flag}
+
+            
+            
+                
+                
+                
+                
+                `);
+        }
+    } else {
+        //If there is any error due to api enpoint or server problem
+        // then we will use this else for printing the error
+        console.log("Data is not available");
+    }
+};
+let obj = [{
+        "name": "Afghanistan",
+        "topLevelDomain": [".af"],
+        "alpha2Code": "AF",
+        "alpha3Code": "AFG",
+        "callingCodes": ["93"],
+        "capital": "Kabul",
+        "altSpellings": ["AF", "Afġānistān"],
+        "region": "Asia",
+        "subregion": "Southern Asia",
+        "population": 27657145,
+        "latlng": [33.0, 65.0],
+        "demonym": "Afghan",
+        "area": 652230.0,
+        "gini": 27.8,
+        "timezones": ["UTC+04:30"],
+        "borders": ["IRN", "PAK", "TKM", "UZB", "TJK", "CHN"],
+        "nativeName": "افغانستان",
+        "numericCode": "004",
+        "currencies": [{
+            "code": "AFN",
+            "name": "Afghan afghani",
+            "symbol": "؋"
+        }],
+        "languages": [{
+            "iso639_1": "ps",
+            "iso639_2": "pus",
+            "name": "Pashto",
+            "nativeName": "پښتو"
+        }, {
+            "iso639_1": "uz",
+            "iso639_2": "uzb",
+            "name": "Uzbek",
+            "nativeName": "Oʻzbek"
+        }, {
+            "iso639_1": "tk",
+            "iso639_2": "tuk",
+            "name": "Turkmen",
+            "nativeName": "Türkmen"
+        }],
+        "translations": {
+            "de": "Afghanistan",
+            "es": "Afganistán",
+            "fr": "Afghanistan",
+            "ja": "アフガニスタン",
+            "it": "Afghanistan",
+            "br": "Afeganistão",
+            "pt": "Afeganistão",
+            "nl": "Afghanistan",
+            "hr": "Afganistan",
+            "fa": "افغانستان"
+        },
+        "flag": "https://restcountries.eu/data/afg.svg",
+        "regionalBlocs": [{
+            "acronym": "SAARC",
+            "name": "South Asian Association for Regional Cooperation",
+            "otherAcronyms": [],
+            "otherNames": []
+        }],
+        "cioc": "AFG"
+    }, {
+        "name": "Åland Islands",
+        "topLevelDomain": [".ax"],
+        "alpha2Code": "AX",
+        "alpha3Code": "ALA",
+        "callingCodes": ["358"],
+        "capital": "Mariehamn",
+        "altSpellings": ["AX", "Aaland", "Aland", "Ahvenanmaa"],
+        "region": "Europe",
+        "subregion": "Northern Europe",
+        "population": 28875,
+        "latlng": [60.116667, 19.9],
+        "demonym": "Ålandish",
+        "area": 1580.0,
+        "gini": null,
+        "timezones": ["UTC+02:00"],
+        "borders": [],
+        "nativeName": "Åland",
+        "numericCode": "248",
+        "currencies": [{ "code": "EUR", "name": "Euro", "symbol": "€" }],
+        "languages": [{ "iso639_1": "sv", "iso639_2": "swe", "name": "Swedish", "nativeName": "svenska" }],
+        "translations": { "de": "Åland", "es": "Alandia", "fr": "Åland", "ja": "オーランド諸島", "it": "Isole Aland", "br": "Ilhas de Aland", "pt": "Ilhas de Aland", "nl": "Ålandeilanden", "hr": "Ålandski otoci", "fa": "جزایر الند" },
+        "flag": "https://restcountries.eu/data/ala.svg",
+        "regionalBlocs": [{ "acronym": "EU", "name": "European Union", "otherAcronyms": [], "otherNames": [] }],
+        "cioc": ""
+    }, {
+        "name": "Albania",
+        "topLevelDomain": [".al"],
+        "alpha2Code": "AL",
+        "alpha3Code": "ALB",
+        "callingCodes": ["355"],
+        "capital": "Tirana",
+        "altSpellings": ["AL", "Shqipëri", "Shqipëria", "Shqipnia"],
+        "region": "Europe",
+        "subregion": "Southern Europe",
+        "population": 2886026,
+        "latlng": [41.0, 20.0],
+        "demonym": "Albanian",
+        "area": 28748.0,
+        "gini": 34.5,
+        "timezones": ["UTC+01:00"],
+        "borders": ["MNE", "GRC", "MKD", "KOS"],
+        "nativeName": "Shqipëria",
+        "numericCode": "008",
+        "currencies": [{ "code": "ALL", "name": "Albanian lek", "symbol": "L" }],
+        "languages": [{ "iso639_1": "sq", "iso639_2": "sqi", "name": "Albanian", "nativeName": "Shqip" }],
+        "translations": { "de": "Albanien", "es": "Albania", "fr": "Albanie", "ja": "アルバニア", "it": "Albania", "br": "Albânia", "pt": "Albânia", "nl": "Albanië", "hr": "Albanija", "fa": "آلبانی" },
+        "flag": "https://restcountries.eu/data/alb.svg",
+        "regionalBlocs": [{ "acronym": "CEFTA", "name": "Central European Free Trade Agreement", "otherAcronyms": [], "otherNames": [] }],
+        "cioc": "ALB"
+    }, {
+        "name": "Algeria",
+        "topLevelDomain": [".dz"],
+        "alpha2Code": "DZ",
+        "alpha3Code": "DZA",
+        "callingCodes": ["213"],
+        "capital": "Algiers",
+        "altSpellings": ["DZ", "Dzayer", "Algérie"],
+        "region": "Africa",
+        "subregion": "Northern Africa",
+        "population": 40400000,
+        "latlng": [28.0, 3.0],
+        "demonym": "Algerian",
+        "area": 2381741.0,
+        "gini": 35.3,
+        "timezones": ["UTC+01:00"],
+        "borders": ["TUN", "LBY", "NER", "ESH", "MRT", "MLI", "MAR"],
+        "nativeName": "الجزائر",
+        "numericCode": "012",
+        "currencies": [{ "code": "DZD", "name": "Algerian dinar", "symbol": "د.ج" }],
+        "languages": [{ "iso639_1": "ar", "iso639_2": "ara", "name": "Arabic", "nativeName": "العربية" }],
+        "translations": { "de": "Algerien", "es": "Argelia", "fr": "Algérie", "ja": "アルジェリア", "it": "Algeria", "br": "Argélia", "pt": "Argélia", "nl": "Algerije", "hr": "Alžir", "fa": "الجزایر" },
+        "flag": "https://restcountries.eu/data/dza.svg",
+        "regionalBlocs": [{ "acronym": "AU", "name": "African Union", "otherAcronyms": [], "otherNames": ["الاتحاد الأفريقي", "Union africaine", "União Africana", "Unión Africana", "Umoja wa Afrika"] }, { "acronym": "AL", "name": "Arab League", "otherAcronyms": [], "otherNames": ["جامعة الدول العربية", "Jāmiʻat ad-Duwal al-ʻArabīyah", "League of Arab States"] }],
+        "cioc": "ALG"
+    }, {
+        "name": "American Samoa",
+        "topLevelDomain": [".as"],
+        "alpha2Code": "AS",
+        "alpha3Code": "ASM",
+        "callingCodes": ["1684"],
+        "capital": "Pago Pago",
+        "altSpellings": ["AS", "Amerika Sāmoa", "Amelika Sāmoa", "Sāmoa Amelika"],
+        "region": "Oceania",
+        "subregion": "Polynesia",
+        "population": 57100,
+        "latlng": [-14.33333333, -170.0],
+        "demonym": "American Samoan",
+        "area": 199.0,
+        "gini": null,
+        "timezones": ["UTC-11:00"],
+        "borders": [],
+        "nativeName": "American Samoa",
+        "numericCode": "016",
+        "currencies": [{ "code": "USD", "name": "United State Dollar", "symbol": "$" }],
+        "languages": [{ "iso639_1": "en", "iso639_2": "eng", "name": "English", "nativeName": "English" }, { "iso639_1": "sm", "iso639_2": "smo", "name": "Samoan", "nativeName": "gagana fa'a Samoa" }],
+        "translations": { "de": "Amerikanisch-Samoa", "es": "Samoa Americana", "fr": "Samoa américaines", "ja": "アメリカ領サモア", "it": "Samoa Americane", "br": "Samoa Americana", "pt": "Samoa Americana", "nl": "Amerikaans Samoa", "hr": "Američka Samoa", "fa": "ساموآی آمریکا" },
+        "flag": "https://restcountries.eu/data/asm.svg",
+        "regionalBlocs": [],
+        "cioc": "ASA"
+    }, {
+        "name": "Andorra",
+        "topLevelDomain": [".ad"],
+        "alpha2Code": "AD",
+        "alpha3Code": "AND",
+        "callingCodes": ["376"],
+        "capital": "Andorra la Vella",
+        "altSpellings": ["AD", "Principality of Andorra", "Principat d'Andorra"],
+        "region": "Europe",
+        "subregion": "Southern Europe",
+        "population": 78014,
+        "latlng": [42.5, 1.5],
+        "demonym": "Andorran",
+        "area": 468.0,
+        "gini": null,
+        "timezones": ["UTC+01:00"],
+        "borders": ["FRA", "ESP"],
+        "nativeName": "Andorra",
+        "numericCode": "020",
+        "currencies": [{ "code": "EUR", "name": "Euro", "symbol": "€" }],
+        "languages": [{ "iso639_1": "ca", "iso639_2": "cat", "name": "Catalan", "nativeName": "català" }],
+        "translations": { "de": "Andorra", "es": "Andorra", "fr": "Andorre", "ja": "アンドラ", "it": "Andorra", "br": "Andorra", "pt": "Andorra", "nl": "Andorra", "hr": "Andora", "fa": "آندورا" },
+        "flag": "https://restcountries.eu/data/and.svg",
+        "regionalBlocs": [],
+        "cioc": "AND"
+    }, {
+        "name": "Angola",
+        "topLevelDomain": [".ao"],
+        "alpha2Code": "AO",
+        "alpha3Code": "AGO",
+        "callingCodes": ["244"],
+        "capital": "Luanda",
+        "altSpellings": ["AO", "República de Angola", "ʁɛpublika de an'ɡɔla"],
+        "region": "Africa",
+        "subregion": "Middle Africa",
+        "population": 25868000,
+        "latlng": [-12.5, 18.5],
+        "demonym": "Angolan",
+        "area": 1246700.0,
+        "gini": 58.6,
+        "timezones": ["UTC+01:00"],
+        "borders": ["COG", "COD", "ZMB", "NAM"],
+        "nativeName": "Angola",
+        "numericCode": "024",
+        "currencies": [{ "code": "AOA", "name": "Angolan kwanza", "symbol": "Kz" }],
+        "languages": [{ "iso639_1": "pt", "iso639_2": "por", "name": "Portuguese", "nativeName": "Português" }],
+        "translations": { "de": "Angola", "es": "Angola", "fr": "Angola", "ja": "アンゴラ", "it": "Angola", "br": "Angola", "pt": "Angola", "nl": "Angola", "hr": "Angola", "fa": "آنگولا" },
+        "flag": "https://restcountries.eu/data/ago.svg",
+        "regionalBlocs": [{ "acronym": "AU", "name": "African Union", "otherAcronyms": [], "otherNames": ["الاتحاد الأفريقي", "Union africaine", "União Africana", "Unión Africana", "Umoja wa Afrika"] }],
+        "cioc": "ANG"
+    }, {
+        "name": "Anguilla",
+        "topLevelDomain": [".ai"],
+        "alpha2Code": "AI",
+        "alpha3Code": "AIA",
+        "callingCodes": ["1264"],
+        "capital": "The Valley",
+        "altSpellings": ["AI"],
+        "region": "Americas",
+        "subregion": "Caribbean",
+        "population": 13452,
+        "latlng": [18.25, -63.16666666],
+        "demonym": "Anguillian",
+        "area": 91.0,
+        "gini": null,
+        "timezones": ["UTC-04:00"],
+        "borders": [],
+        "nativeName": "Anguilla",
+        "numericCode": "660",
+        "currencies": [{ "code": "XCD", "name": "East Caribbean dollar", "symbol": "$" }],
+        "languages": [{ "iso639_1": "en", "iso639_2": "eng", "name": "English", "nativeName": "English" }],
+        "translations": { "de": "Anguilla", "es": "Anguilla", "fr": "Anguilla", "ja": "アンギラ", "it": "Anguilla", "br": "Anguila", "pt": "Anguila", "nl": "Anguilla", "hr": "Angvila", "fa": "آنگویلا" },
+        "flag": "https://restcountries.eu/data/aia.svg",
+        "regionalBlocs": [],
+        "cioc": ""
+    }, {
+        "name": "Antarctica",
+        "topLevelDomain": [".aq"],
+        "alpha2Code": "AQ",
+        "alpha3Code": "ATA",
+        "callingCodes": ["672"],
+        "capital": "",
+        "altSpellings": [],
+        "region": "Polar",
+        "subregion": "",
+        "population": 1000,
+        "latlng": [-74.65, 4.48],
+        "demonym": "",
+        "area": 1.4E7,
+        "gini": null,
+        "timezones": ["UTC-03:00", "UTC+03:00", "UTC+05:00", "UTC+06:00", "UTC+07:00", "UTC+08:00", "UTC+10:00", "UTC+12:00"],
+        "borders": [],
+        "nativeName": "Antarctica",
+        "numericCode": "010",
+        "currencies": [{ "code": "AUD", "name": "Australian dollar", "symbol": "$" }, { "code": "GBP", "name": "British pound", "symbol": "£" }],
+        "languages": [{ "iso639_1": "en", "iso639_2": "eng", "name": "English", "nativeName": "English" }, { "iso639_1": "ru", "iso639_2": "rus", "name": "Russian", "nativeName": "Русский" }],
+        "translations": { "de": "Antarktika", "es": "Antártida", "fr": "Antarctique", "ja": "南極大陸", "it": "Antartide", "br": "Antártida", "pt": "Antárctida", "nl": "Antarctica", "hr": "Antarktika", "fa": "جنوبگان" },
+        "flag": "https://restcountries.eu/data/ata.svg",
+        "regionalBlocs": [],
+        "cioc": ""
+    }, {
+        "name": "Antigua and Barbuda",
+        "topLevelDomain": [".ag"],
+        "alpha2Code": "AG",
+        "alpha3Code": "ATG",
+        "callingCodes": ["1268"],
+        "capital": "Saint John's",
+        "altSpellings": ["AG"],
+        "region": "Americas",
+        "subregion": "Caribbean",
+        "population": 86295,
+        "latlng": [17.05, -61.8],
+        "demonym": "Antiguan, Barbudan",
+        "area": 442.0,
+        "gini": null,
+        "timezones": ["UTC-04:00"],
+        "borders": [],
+        "nativeName": "Antigua and Barbuda",
+        "numericCode": "028",
+        "currencies": [{ "code": "XCD", "name": "East Caribbean dollar", "symbol": "$" }],
+        "languages": [{ "iso639_1": "en", "iso639_2": "eng", "name": "English", "nativeName": "English" }],
+        "translations": { "de": "Antigua und Barbuda", "es": "Antigua y Barbuda", "fr": "Antigua-et-Barbuda", "ja": "アンティグア・バーブーダ", "it": "Antigua e Barbuda", "br": "Antígua e Barbuda", "pt": "Antígua e Barbuda", "nl": "Antigua en Barbuda", "hr": "Antigva i Barbuda", "fa": "آنتیگوا و باربودا" },
+        "flag": "https://restcountries.eu/data/atg.svg",
+        "regionalBlocs": [{ "acronym": "CARICOM", "name": "Caribbean Community", "otherAcronyms": [], "otherNames": ["Comunidad del Caribe", "Communauté Caribéenne", "Caribische Gemeenschap"] }],
+        "cioc": "ANT"
+    }, {
+        "name": "Argentina",
+        "topLevelDomain": [".ar"],
+        "alpha2Code": "AR",
+        "alpha3Code": "ARG",
+        "callingCodes": ["54"],
+        "capital": "Buenos Aires",
+        "altSpellings": ["AR", "Argentine Republic", "República Argentina"],
+        "region": "Americas",
+        "subregion": "South America",
+        "population": 43590400,
+        "latlng": [-34.0, -64.0],
+        "demonym": "Argentinean",
+        "area": 2780400.0,
+        "gini": 44.5,
+        "timezones": ["UTC-03:00"],
+        "borders": ["BOL", "BRA", "CHL", "PRY", "URY"],
+        "nativeName": "Argentina",
+        "numericCode": "032",
+        "currencies": [{ "code": "ARS", "name": "Argentine peso", "symbol": "$" }],
+        "languages": [{ "iso639_1": "es", "iso639_2": "spa", "name": "Spanish", "nativeName": "Español" }, { "iso639_1": "gn", "iso639_2": "grn", "name": "Guaraní", "nativeName": "Avañe'ẽ" }],
+        "translations": { "de": "Argentinien", "es": "Argentina", "fr": "Argentine", "ja": "アルゼンチン", "it": "Argentina", "br": "Argentina", "pt": "Argentina", "nl": "Argentinië", "hr": "Argentina", "fa": "آرژانتین" },
+        "flag": "https://restcountries.eu/data/arg.svg",
+        "regionalBlocs": [{ "acronym": "USAN", "name": "Union of South American Nations", "otherAcronyms": ["UNASUR", "UNASUL", "UZAN"], "otherNames": ["Unión de Naciones Suramericanas", "União de Nações Sul-Americanas", "Unie van Zuid-Amerikaanse Naties", "South American Union"] }],
+        "cioc": "ARG"
+    }, {
+        "name": "Armenia",
+        "topLevelDomain": [".am"],
+        "alpha2Code": "AM",
+        "alpha3Code": "ARM",
+        "callingCodes": ["374"],
+        "capital": "Yerevan",
+        "altSpellings": ["AM", "Hayastan", "Republic of Armenia", "Հայաստանի Հանրապետություն"],
+        "region": "Asia",
+        "subregion": "Western Asia",
+        "population": 2994400,
+        "latlng": [40.0, 45.0],
+        "demonym": "Armenian",
+        "area": 29743.0,
+        "gini": 30.9,
+        "timezones": ["UTC+04:00"],
+        "borders": ["AZE", "GEO", "IRN", "TUR"],
+        "nativeName": "Հայաստան",
+        "numericCode": "051",
+        "currencies": [{ "code": "AMD", "name": "Armenian dram", "symbol": null }],
+        "languages": [{ "iso639_1": "hy", "iso639_2": "hye", "name": "Armenian", "nativeName": "Հայերեն" }, { "iso639_1": "ru", "iso639_2": "rus", "name": "Russian", "nativeName": "Русский" }],
+        "translations": { "de": "Armenien", "es": "Armenia", "fr": "Arménie", "ja": "アルメニア", "it": "Armenia", "br": "Armênia", "pt": "Arménia", "nl": "Armenië", "hr": "Armenija", "fa": "ارمنستان" },
+        "flag": "https://restcountries.eu/data/arm.svg",
+        "regionalBlocs": [{ "acronym": "EEU", "name": "Eurasian Economic Union", "otherAcronyms": ["EAEU"], "otherNames": [] }],
+        "cioc": "ARM"
+    }, {
+        "name": "Aruba",
+        "topLevelDomain": [".aw"],
+        "alpha2Code": "AW",
+        "alpha3Code": "ABW",
+        "callingCodes": ["297"],
+        "capital": "Oranjestad",
+        "altSpellings": ["AW"],
+        "region": "Americas",
+        "subregion": "Caribbean",
+        "population": 107394,
+        "latlng": [12.5, -69.96666666],
+        "demonym": "Aruban",
+        "area": 180.0,
+        "gini": null,
+        "timezones": ["UTC-04:00"],
+        "borders": [],
+        "nativeName": "Aruba",
+        "numericCode": "533",
+        "currencies": [{ "code": "AWG", "name": "Aruban florin", "symbol": "ƒ" }],
+        "languages": [{ "iso639_1": "nl", "iso639_2": "nld", "name": "Dutch", "nativeName": "Nederlands" }, { "iso639_1": "pa", "iso639_2": "pan", "name": "(Eastern) Punjabi", "nativeName": "ਪੰਜਾਬੀ" }],
+        "translations": { "de": "Aruba", "es": "Aruba", "fr": "Aruba", "ja": "アルバ", "it": "Aruba", "br": "Aruba", "pt": "Aruba", "nl": "Aruba", "hr": "Aruba", "fa": "آروبا" },
+        "flag": "https://restcountries.eu/data/abw.svg",
+        "regionalBlocs": [],
+        "cioc": "ARU"
+    }, {
+        "name": "Australia",
+        "topLevelDomain": [".au"],
+        "alpha2Code": "AU",
+        "alpha3Code": "AUS",
+        "callingCodes": ["61"],
+        "capital": "Canberra",
+        "altSpellings": ["AU"],
+        "region": "Oceania",
+        "subregion": "Australia and New Zealand",
+        "population": 24117360,
+        "latlng": [-27.0, 133.0],
+        "demonym": "Australian",
+        "area": 7692024.0,
+        "gini": 30.5,
+        "timezones": ["UTC+05:00", "UTC+06:30", "UTC+07:00", "UTC+08:00", "UTC+09:30", "UTC+10:00", "UTC+10:30", "UTC+11:30"],
+        "borders": [],
+        "nativeName": "Australia",
+        "numericCode": "036",
+        "currencies": [{ "code": "AUD", "name": "Australian dollar", "symbol": "$" }],
+        "languages": [{ "iso639_1": "en", "iso639_2": "eng", "name": "English", "nativeName": "English" }],
+        "translations": { "de": "Australien", "es": "Australia", "fr": "Australie", "ja": "オーストラリア", "it": "Australia", "br": "Austrália", "pt": "Austrália", "nl": "Australië", "hr": "Australija", "fa": "استرالیا" },
+        "flag": "https://restcountries.eu/data/aus.svg",
+        "regionalBlocs": [],
+        "cioc": "AUS"
+    }, {
+        "name": "Austria",
+        "topLevelDomain": [".at"],
+        "alpha2Code": "AT",
+        "alpha3Code": "AUT",
+        "callingCodes": ["43"],
+        "capital": "Vienna",
+        "altSpellings": ["AT", "Österreich", "Osterreich", "Oesterreich"],
+        "region": "Europe",
+        "subregion": "Western Europe",
+        "population": 8725931,
+        "latlng": [47.33333333, 13.33333333],
+        "demonym": "Austrian",
+        "area": 83871.0,
+        "gini": 26.0,
+        "timezones": ["UTC+01:00"],
+        "borders": ["CZE", "DEU", "HUN", "ITA", "LIE", "SVK", "SVN", "CHE"],
+        "nativeName": "Österreich",
+        "numericCode": "040",
+        "currencies": [{ "code": "EUR", "name": "Euro", "symbol": "€" }],
+        "languages": [{ "iso639_1": "de", "iso639_2": "deu", "name": "German", "nativeName": "Deutsch" }],
+        "translations": { "de": "Österreich", "es": "Austria", "fr": "Autriche", "ja": "オーストリア", "it": "Austria", "br": "áustria", "pt": "áustria", "nl": "Oostenrijk", "hr": "Austrija", "fa": "اتریش" },
+        "flag": "https://restcountries.eu/data/aut.svg",
+        "regionalBlocs": [{ "acronym": "EU", "name": "European Union", "otherAcronyms": [], "otherNames": [] }],
+        "cioc": "AUT"
+    },
+    {
+        "name": "Azerbaijan",
+        "topLevelDomain": [".az"],
+        "alpha2Code": "AZ",
+        "alpha3Code": "AZE",
+        "callingCodes": ["994"],
+        "capital": "Baku",
+        "altSpellings": ["AZ", "Republic of Azerbaijan", "Azərbaycan Respublikası"],
+        "region": "Asia",
+        "subregion": "Western Asia",
+        "population": 9730500,
+        "latlng": [40.5, 47.5],
+        "demonym": "Azerbaijani",
+        "area": 86600.0,
+        "gini": 33.7,
+        "timezones": ["UTC+04:00"],
+        "borders": ["ARM", "GEO", "IRN", "RUS", "TUR"],
+        "nativeName": "Azərbaycan",
+        "numericCode": "031",
+        "currencies": [{ "code": "AZN", "name": "Azerbaijani manat", "symbol": null }],
+        "languages": [{ "iso639_1": "az", "iso639_2": "aze", "name": "Azerbaijani", "nativeName": "azərbaycan dili" }],
+        "translations": { "de": "Aserbaidschan", "es": "Azerbaiyán", "fr": "Azerbaïdjan", "ja": "アゼルバイジャン", "it": "Azerbaijan", "br": "Azerbaijão", "pt": "Azerbaijão", "nl": "Azerbeidzjan", "hr": "Azerbajdžan", "fa": "آذربایجان" },
+        "flag": "https://restcountries.eu/data/aze.svg",
+        "regionalBlocs": [],
+        "cioc": "AZE"
+    }, {
+        "name": "Bahamas",
+        "topLevelDomain": [".bs"],
+        "alpha2Code": "BS",
+        "alpha3Code": "BHS",
+        "callingCodes": ["1242"],
+        "capital": "Nassau",
+        "altSpellings": ["BS", "Commonwealth of the Bahamas"],
+        "region": "Americas",
+        "subregion": "Caribbean",
+        "population": 378040,
+        "latlng": [24.25, -76.0],
+        "demonym": "Bahamian",
+        "area": 13943.0,
+        "gini": null,
+        "timezones": ["UTC-05:00"],
+        "borders": [],
+        "nativeName": "Bahamas",
+        "numericCode": "044",
+        "currencies": [{ "code": "BSD", "name": "Bahamian dollar", "symbol": "$" }],
+        "languages": [{ "iso639_1": "en", "iso639_2": "eng", "name": "English", "nativeName": "English" }],
+        "translations": { "de": "Bahamas", "es": "Bahamas", "fr": "Bahamas", "ja": "バハマ", "it": "Bahamas", "br": "Bahamas", "pt": "Baamas", "nl": "Bahama’s", "hr": "Bahami", "fa": "باهاما" },
+        "flag": "https://restcountries.eu/data/bhs.svg",
+        "regionalBlocs": [{ "acronym": "CARICOM", "name": "Caribbean Community", "otherAcronyms": [], "otherNames": ["Comunidad del Caribe", "Communauté Caribéenne", "Caribische Gemeenschap"] }],
+        "cioc": "BAH"
+    }, {
+        "name": "Bahrain",
+        "topLevelDomain": [".bh"],
+        "alpha2Code": "BH",
+        "alpha3Code": "BHR",
+        "callingCodes": ["973"],
+        "capital": "Manama",
+        "altSpellings": ["BH", "Kingdom of Bahrain", "Mamlakat al-Baḥrayn"],
+        "region": "Asia",
+        "subregion": "Western Asia",
+        "population": 1404900,
+        "latlng": [26.0, 50.55],
+        "demonym": "Bahraini",
+        "area": 765.0,
+        "gini": null,
+        "timezones": ["UTC+03:00"],
+        "borders": [],
+        "nativeName": "‏البحرين",
+        "numericCode": "048",
+        "currencies": [{ "code": "BHD", "name": "Bahraini dinar", "symbol": ".د.ب" }],
+        "languages": [{ "iso639_1": "ar", "iso639_2": "ara", "name": "Arabic", "nativeName": "العربية" }],
+        "translations": { "de": "Bahrain", "es": "Bahrein", "fr": "Bahreïn", "ja": "バーレーン", "it": "Bahrein", "br": "Bahrein", "pt": "Barém", "nl": "Bahrein", "hr": "Bahrein", "fa": "بحرین" },
+        "flag": "https://restcountries.eu/data/bhr.svg",
+        "regionalBlocs": [{ "acronym": "AL", "name": "Arab League", "otherAcronyms": [], "otherNames": ["جامعة الدول العربية", "Jāmiʻat ad-Duwal al-ʻArabīyah", "League of Arab States"] }],
+        "cioc": "BRN"
+    }, {
+        "name": "Bangladesh",
+        "topLevelDomain": [".bd"],
+        "alpha2Code": "BD",
+        "alpha3Code": "BGD",
+        "callingCodes": ["880"],
+        "capital": "Dhaka",
+        "altSpellings": ["BD", "People's Republic of Bangladesh", "Gônôprôjatôntri Bangladesh"],
+        "region": "Asia",
+        "subregion": "Southern Asia",
+        "population": 161006790,
+        "latlng": [24.0, 90.0],
+        "demonym": "Bangladeshi",
+        "area": 147570.0,
+        "gini": 32.1,
+        "timezones": ["UTC+06:00"],
+        "borders": ["MMR", "IND"],
+        "nativeName": "Bangladesh",
+        "numericCode": "050",
+        "currencies": [{ "code": "BDT", "name": "Bangladeshi taka", "symbol": "৳" }],
+        "languages": [{ "iso639_1": "bn", "iso639_2": "ben", "name": "Bengali", "nativeName": "বাংলা" }],
+        "translations": { "de": "Bangladesch", "es": "Bangladesh", "fr": "Bangladesh", "ja": "バングラデシュ", "it": "Bangladesh", "br": "Bangladesh", "pt": "Bangladeche", "nl": "Bangladesh", "hr": "Bangladeš", "fa": "بنگلادش" },
+        "flag": "https://restcountries.eu/data/bgd.svg",
+        "regionalBlocs": [{ "acronym": "SAARC", "name": "South Asian Association for Regional Cooperation", "otherAcronyms": [], "otherNames": [] }],
+        "cioc": "BAN"
+    }, {
+        "name": "Barbados",
+        "topLevelDomain": [".bb"],
+        "alpha2Code": "BB",
+        "alpha3Code": "BRB",
+        "callingCodes": ["1246"],
+        "capital": "Bridgetown",
+        "altSpellings": ["BB"],
+        "region": "Americas",
+        "subregion": "Caribbean",
+        "population": 285000,
+        "latlng": [13.16666666, -59.53333333],
+        "demonym": "Barbadian",
+        "area": 430.0,
+        "gini": null,
+        "timezones": ["UTC-04:00"],
+        "borders": [],
+        "nativeName": "Barbados",
+        "numericCode": "052",
+        "currencies": [{ "code": "BBD", "name": "Barbadian dollar", "symbol": "$" }],
+        "languages": [{ "iso639_1": "en", "iso639_2": "eng", "name": "English", "nativeName": "English" }],
+        "translations": { "de": "Barbados", "es": "Barbados", "fr": "Barbade", "ja": "バルバドス", "it": "Barbados", "br": "Barbados", "pt": "Barbados", "nl": "Barbados", "hr": "Barbados", "fa": "باربادوس" },
+        "flag": "https://restcountries.eu/data/brb.svg",
+        "regionalBlocs": [{ "acronym": "CARICOM", "name": "Caribbean Community", "otherAcronyms": [], "otherNames": ["Comunidad del Caribe", "Communauté Caribéenne", "Caribische Gemeenschap"] }],
+        "cioc": "BAR"
+    }, {
+        "name": "Belarus",
+        "topLevelDomain": [".by"],
+        "alpha2Code": "BY",
+        "alpha3Code": "BLR",
+        "callingCodes": ["375"],
+        "capital": "Minsk",
+        "altSpellings": ["BY", "Bielaruś", "Republic of Belarus", "Белоруссия", "Республика Беларусь", "Belorussiya", "Respublika Belarus’"],
+        "region": "Europe",
+        "subregion": "Eastern Europe",
+        "population": 9498700,
+        "latlng": [53.0, 28.0],
+        "demonym": "Belarusian",
+        "area": 207600.0,
+        "gini": 26.5,
+        "timezones": ["UTC+03:00"],
+        "borders": ["LVA", "LTU", "POL", "RUS", "UKR"],
+        "nativeName": "Белару́сь",
+        "numericCode": "112",
+        "currencies": [{ "code": "BYN", "name": "New Belarusian ruble", "symbol": "Br" }, { "code": "BYR", "name": "Old Belarusian ruble", "symbol": "Br" }],
+        "languages": [{ "iso639_1": "be", "iso639_2": "bel", "name": "Belarusian", "nativeName": "беларуская мова" }, { "iso639_1": "ru", "iso639_2": "rus", "name": "Russian", "nativeName": "Русский" }],
+        "translations": { "de": "Weißrussland", "es": "Bielorrusia", "fr": "Biélorussie", "ja": "ベラルーシ", "it": "Bielorussia", "br": "Bielorrússia", "pt": "Bielorrússia", "nl": "Wit-Rusland", "hr": "Bjelorusija", "fa": "بلاروس" },
+        "flag": "https://restcountries.eu/data/blr.svg",
+        "regionalBlocs": [{ "acronym": "EEU", "name": "Eurasian Economic Union", "otherAcronyms": ["EAEU"], "otherNames": [] }],
+        "cioc": "BLR"
+    }, {
+        "name": "Belgium",
+        "topLevelDomain": [".be"],
+        "alpha2Code": "BE",
+        "alpha3Code": "BEL",
+        "callingCodes": ["32"],
+        "capital": "Brussels",
+        "altSpellings": ["BE", "België", "Belgie", "Belgien", "Belgique", "Kingdom of Belgium", "Koninkrijk België", "Royaume de Belgique", "Königreich Belgien"],
+        "region": "Europe",
+        "subregion": "Western Europe",
+        "population": 11319511,
+        "latlng": [50.83333333, 4.0],
+        "demonym": "Belgian",
+        "area": 30528.0,
+        "gini": 33.0,
+        "timezones": ["UTC+01:00"],
+        "borders": ["FRA", "DEU", "LUX", "NLD"],
+        "nativeName": "België",
+        "numericCode": "056",
+        "currencies": [{ "code": "EUR", "name": "Euro", "symbol": "€" }],
+        "languages": [{ "iso639_1": "nl", "iso639_2": "nld", "name": "Dutch", "nativeName": "Nederlands" }, { "iso639_1": "fr", "iso639_2": "fra", "name": "French", "nativeName": "français" }, { "iso639_1": "de", "iso639_2": "deu", "name": "German", "nativeName": "Deutsch" }],
+        "translations": { "de": "Belgien", "es": "Bélgica", "fr": "Belgique", "ja": "ベルギー", "it": "Belgio", "br": "Bélgica", "pt": "Bélgica", "nl": "België", "hr": "Belgija", "fa": "بلژیک" },
+        "flag": "https://restcountries.eu/data/bel.svg",
+        "regionalBlocs": [{ "acronym": "EU", "name": "European Union", "otherAcronyms": [], "otherNames": [] }],
+        "cioc": "BEL"
+    }, {
+        "name": "Belize",
+        "topLevelDomain": [".bz"],
+        "alpha2Code": "BZ",
+        "alpha3Code": "BLZ",
+        "callingCodes": ["501"],
+        "capital": "Belmopan",
+        "altSpellings": ["BZ"],
+        "region": "Americas",
+        "subregion": "Central America",
+        "population": 370300,
+        "latlng": [17.25, -88.75],
+        "demonym": "Belizean",
+        "area": 22966.0,
+        "gini": 53.1,
+        "timezones": ["UTC-06:00"],
+        "borders": ["GTM", "MEX"],
+        "nativeName": "Belize",
+        "numericCode": "084",
+        "currencies": [{ "code": "BZD", "name": "Belize dollar", "symbol": "$" }],
+        "languages": [{ "iso639_1": "en", "iso639_2": "eng", "name": "English", "nativeName": "English" }, { "iso639_1": "es", "iso639_2": "spa", "name": "Spanish", "nativeName": "Español" }],
+        "translations": { "de": "Belize", "es": "Belice", "fr": "Belize", "ja": "ベリーズ", "it": "Belize", "br": "Belize", "pt": "Belize", "nl": "Belize", "hr": "Belize", "fa": "بلیز" },
+        "flag": "https://restcountries.eu/data/blz.svg",
+        "regionalBlocs": [{ "acronym": "CARICOM", "name": "Caribbean Community", "otherAcronyms": [], "otherNames": ["Comunidad del Caribe", "Communauté Caribéenne", "Caribische Gemeenschap"] }, { "acronym": "CAIS", "name": "Central American Integration System", "otherAcronyms": ["SICA"], "otherNames": ["Sistema de la Integración Centroamericana,"] }],
+        "cioc": "BIZ"
+    }, {
+        "name": "Benin",
+        "topLevelDomain": [".bj"],
+        "alpha2Code": "BJ",
+        "alpha3Code": "BEN",
+        "callingCodes": ["229"],
+        "capital": "Porto-Novo",
+        "altSpellings": ["BJ", "Republic of Benin", "République du Bénin"],
+        "region": "Africa",
+        "subregion": "Western Africa",
+        "population": 10653654,
+        "latlng": [9.5, 2.25],
+        "demonym": "Beninese",
+        "area": 112622.0,
+        "gini": 38.6,
+        "timezones": ["UTC+01:00"],
+        "borders": ["BFA", "NER", "NGA", "TGO"],
+        "nativeName": "Bénin",
+        "numericCode": "204",
+        "currencies": [{ "code": "XOF", "name": "West African CFA franc", "symbol": "Fr" }],
+        "languages": [{ "iso639_1": "fr", "iso639_2": "fra", "name": "French", "nativeName": "français" }],
+        "translations": { "de": "Benin", "es": "Benín", "fr": "Bénin", "ja": "ベナン", "it": "Benin", "br": "Benin", "pt": "Benim", "nl": "Benin", "hr": "Benin", "fa": "بنین" },
+        "flag": "https://restcountries.eu/data/ben.svg",
+        "regionalBlocs": [{ "acronym": "AU", "name": "African Union", "otherAcronyms": [], "otherNames": ["الاتحاد الأفريقي", "Union africaine", "União Africana", "Unión Africana", "Umoja wa Afrika"] }],
+        "cioc": "BEN"
+    }, {
+        "name": "Bermuda",
+        "topLevelDomain": [".bm"],
+        "alpha2Code": "BM",
+        "alpha3Code": "BMU",
+        "callingCodes": ["1441"],
+        "capital": "Hamilton",
+        "altSpellings": ["BM", "The Islands of Bermuda", "The Bermudas", "Somers Isles"],
+        "region": "Americas",
+        "subregion": "Northern America",
+        "population": 61954,
+        "latlng": [32.33333333, -64.75],
+        "demonym": "Bermudian",
+        "area": 54.0,
+        "gini": null,
+        "timezones": ["UTC-04:00"],
+        "borders": [],
+        "nativeName": "Bermuda",
+        "numericCode": "060",
+        "currencies": [{ "code": "BMD", "name": "Bermudian dollar", "symbol": "$" }],
+        "languages": [{ "iso639_1": "en", "iso639_2": "eng", "name": "English", "nativeName": "English" }],
+        "translations": { "de": "Bermuda", "es": "Bermudas", "fr": "Bermudes", "ja": "バミューダ", "it": "Bermuda", "br": "Bermudas", "pt": "Bermudas", "nl": "Bermuda", "hr": "Bermudi", "fa": "برمودا" },
+        "flag": "https://restcountries.eu/data/bmu.svg",
+        "regionalBlocs": [],
+        "cioc": "BER"
+    }, {
+        "name": "Bhutan",
+        "topLevelDomain": [".bt"],
+        "alpha2Code": "BT",
+        "alpha3Code": "BTN",
+        "callingCodes": ["975"],
+        "capital": "Thimphu",
+        "altSpellings": ["BT", "Kingdom of Bhutan"],
+        "region": "Asia",
+        "subregion": "Southern Asia",
+        "population": 775620,
+        "latlng": [27.5, 90.5],
+        "demonym": "Bhutanese",
+        "area": 38394.0,
+        "gini": 38.1,
+        "timezones": ["UTC+06:00"],
+        "borders": ["CHN", "IND"],
+        "nativeName": "ʼbrug-yul",
+        "numericCode": "064",
+        "currencies": [{ "code": "BTN", "name": "Bhutanese ngultrum", "symbol": "Nu." }, { "code": "INR", "name": "Indian rupee", "symbol": "₹" }],
+        "languages": [{ "iso639_1": "dz", "iso639_2": "dzo", "name": "Dzongkha", "nativeName": "རྫོང་ཁ" }],
+        "translations": { "de": "Bhutan", "es": "Bután", "fr": "Bhoutan", "ja": "ブータン", "it": "Bhutan", "br": "Butão", "pt": "Butão", "nl": "Bhutan", "hr": "Butan", "fa": "بوتان" },
+        "flag": "https://restcountries.eu/data/btn.svg",
+        "regionalBlocs": [{ "acronym": "SAARC", "name": "South Asian Association for Regional Cooperation", "otherAcronyms": [], "otherNames": [] }],
+        "cioc": "BHU"
+    }, {
+        "name": "Bolivia (Plurinational State of)",
+        "topLevelDomain": [".bo"],
+        "alpha2Code": "BO",
+        "alpha3Code": "BOL",
+        "callingCodes": ["591"],
+        "capital": "Sucre",
+        "altSpellings": ["BO", "Buliwya", "Wuliwya", "Plurinational State of Bolivia", "Estado Plurinacional de Bolivia", "Buliwya Mamallaqta", "Wuliwya Suyu", "Tetã Volívia"],
+        "region": "Americas",
+        "subregion": "South America",
+        "population": 10985059,
+        "latlng": [-17.0, -65.0],
+        "demonym": "Bolivian",
+        "area": 1098581.0,
+        "gini": 56.3,
+        "timezones": ["UTC-04:00"],
+        "borders": ["ARG", "BRA", "CHL", "PRY", "PER"],
+        "nativeName": "Bolivia",
+        "numericCode": "068",
+        "currencies": [{ "code": "BOB", "name": "Bolivian boliviano", "symbol": "Bs." }],
+        "languages": [{ "iso639_1": "es", "iso639_2": "spa", "name": "Spanish", "nativeName": "Español" }, { "iso639_1": "ay", "iso639_2": "aym", "name": "Aymara", "nativeName": "aymar aru" }, { "iso639_1": "qu", "iso639_2": "que", "name": "Quechua", "nativeName": "Runa Simi" }],
+        "translations": { "de": "Bolivien", "es": "Bolivia", "fr": "Bolivie", "ja": "ボリビア多民族国", "it": "Bolivia", "br": "Bolívia", "pt": "Bolívia", "nl": "Bolivia", "hr": "Bolivija", "fa": "بولیوی" },
+        "flag": "https://restcountries.eu/data/bol.svg",
+        "regionalBlocs": [{ "acronym": "USAN", "name": "Union of South American Nations", "otherAcronyms": ["UNASUR", "UNASUL", "UZAN"], "otherNames": ["Unión de Naciones Suramericanas", "União de Nações Sul-Americanas", "Unie van Zuid-Amerikaanse Naties", "South American Union"] }],
+        "cioc": "BOL"
+    }, {
+        "name": "Bonaire, Sint Eustatius and Saba",
+        "topLevelDomain": [".an", ".nl"],
+        "alpha2Code": "BQ",
+        "alpha3Code": "BES",
+        "callingCodes": ["5997"],
+        "capital": "Kralendijk",
+        "altSpellings": ["BQ", "Boneiru"],
+        "region": "Americas",
+        "subregion": "Caribbean",
+        "population": 17408,
+        "latlng": [12.15, -68.266667],
+        "demonym": "Dutch",
+        "area": 294.0,
+        "gini": null,
+        "timezones": ["UTC-04:00"],
+        "borders": [],
+        "nativeName": "Bonaire",
+        "numericCode": "535",
+        "currencies": [{ "code": "USD", "name": "United States dollar", "symbol": "$" }],
+        "languages": [{ "iso639_1": "nl", "iso639_2": "nld", "name": "Dutch", "nativeName": "Nederlands" }],
+        "translations": { "de": "Bonaire, Sint Eustatius und Saba", "es": null, "fr": "Bonaire, Saint-Eustache et Saba", "ja": null, "it": "Bonaire, Saint-Eustache e Saba", "br": "Bonaire", "pt": "Bonaire", "nl": null, "hr": null, "fa": "بونیر" },
+        "flag": "https://restcountries.eu/data/bes.svg",
+        "regionalBlocs": [],
+        "cioc": null
+    }, {
+        "name": "Bosnia and Herzegovina",
+        "topLevelDomain": [".ba"],
+        "alpha2Code": "BA",
+        "alpha3Code": "BIH",
+        "callingCodes": ["387"],
+        "capital": "Sarajevo",
+        "altSpellings": ["BA", "Bosnia-Herzegovina", "Босна и Херцеговина"],
+        "region": "Europe",
+        "subregion": "Southern Europe",
+        "population": 3531159,
+        "latlng": [44.0, 18.0],
+        "demonym": "Bosnian, Herzegovinian",
+        "area": 51209.0,
+        "gini": 36.2,
+        "timezones": ["UTC+01:00"],
+        "borders": ["HRV", "MNE", "SRB"],
+        "nativeName": "Bosna i Hercegovina",
+        "numericCode": "070",
+        "currencies": [{ "code": "BAM", "name": "Bosnia and Herzegovina convertible mark", "symbol": null }],
+        "languages": [{ "iso639_1": "bs", "iso639_2": "bos", "name": "Bosnian", "nativeName": "bosanski jezik" }, { "iso639_1": "hr", "iso639_2": "hrv", "name": "Croatian", "nativeName": "hrvatski jezik" }, { "iso639_1": "sr", "iso639_2": "srp", "name": "Serbian", "nativeName": "српски језик" }],
+        "translations": { "de": "Bosnien und Herzegowina", "es": "Bosnia y Herzegovina", "fr": "Bosnie-Herzégovine", "ja": "ボスニア・ヘルツェゴビナ", "it": "Bosnia ed Erzegovina", "br": "Bósnia e Herzegovina", "pt": "Bósnia e Herzegovina", "nl": "Bosnië en Herzegovina", "hr": "Bosna i Hercegovina", "fa": "بوسنی و هرزگوین" },
+        "flag": "https://restcountries.eu/data/bih.svg",
+        "regionalBlocs": [{ "acronym": "CEFTA", "name": "Central European Free Trade Agreement", "otherAcronyms": [], "otherNames": [] }],
+        "cioc": "BIH"
+    }, {
+        "name": "Botswana",
+        "topLevelDomain": [".bw"],
+        "alpha2Code": "BW",
+        "alpha3Code": "BWA",
+        "callingCodes": ["267"],
+        "capital": "Gaborone",
+        "altSpellings": ["BW", "Republic of Botswana", "Lefatshe la Botswana"],
+        "region": "Africa",
+        "subregion": "Southern Africa",
+        "population": 2141206,
+        "latlng": [-22.0, 24.0],
+        "demonym": "Motswana",
+        "area": 582000.0,
+        "gini": 61.0,
+        "timezones": ["UTC+02:00"],
+        "borders": ["NAM", "ZAF", "ZMB", "ZWE"],
+        "nativeName": "Botswana",
+        "numericCode": "072",
+        "currencies": [{ "code": "BWP", "name": "Botswana pula", "symbol": "P" }],
+        "languages": [{ "iso639_1": "en", "iso639_2": "eng", "name": "English", "nativeName": "English" }, { "iso639_1": "tn", "iso639_2": "tsn", "name": "Tswana", "nativeName": "Setswana" }],
+        "translations": { "de": "Botswana", "es": "Botswana", "fr": "Botswana", "ja": "ボツワナ", "it": "Botswana", "br": "Botsuana", "pt": "Botsuana", "nl": "Botswana", "hr": "Bocvana", "fa": "بوتسوانا" },
+        "flag": "https://restcountries.eu/data/bwa.svg",
+        "regionalBlocs": [{ "acronym": "AU", "name": "African Union", "otherAcronyms": [], "otherNames": ["الاتحاد الأفريقي", "Union africaine", "União Africana", "Unión Africana", "Umoja wa Afrika"] }],
+        "cioc": "BOT"
+    }, {
+        "name": "Bouvet Island",
+        "topLevelDomain": [".bv"],
+        "alpha2Code": "BV",
+        "alpha3Code": "BVT",
+        "callingCodes": [""],
+        "capital": "",
+        "altSpellings": ["BV", "Bouvetøya", "Bouvet-øya"],
+        "region": "",
+        "subregion": "",
+        "population": 0,
+        "latlng": [-54.43333333, 3.4],
+        "demonym": "",
+        "area": 49.0,
+        "gini": null,
+        "timezones": ["UTC+01:00"],
+        "borders": [],
+        "nativeName": "Bouvetøya",
+        "numericCode": "074",
+        "currencies": [{ "code": "NOK", "name": "Norwegian krone", "symbol": "kr" }],
+        "languages": [{ "iso639_1": "no", "iso639_2": "nor", "name": "Norwegian", "nativeName": "Norsk" }, { "iso639_1": "nb", "iso639_2": "nob", "name": "Norwegian Bokmål", "nativeName": "Norsk bokmål" }, { "iso639_1": "nn", "iso639_2": "nno", "name": "Norwegian Nynorsk", "nativeName": "Norsk nynorsk" }],
+        "translations": { "de": "Bouvetinsel", "es": "Isla Bouvet", "fr": "Île Bouvet", "ja": "ブーベ島", "it": "Isola Bouvet", "br": "Ilha Bouvet", "pt": "Ilha Bouvet", "nl": "Bouveteiland", "hr": "Otok Bouvet", "fa": "جزیره بووه" },
+        "flag": "https://restcountries.eu/data/bvt.svg",
+        "regionalBlocs": [],
+        "cioc": ""
+    }, {
+        "name": "Brazil",
+        "topLevelDomain": [".br"],
+        "alpha2Code": "BR",
+        "alpha3Code": "BRA",
+        "callingCodes": ["55"],
+        "capital": "Brasília",
+        "altSpellings": ["BR", "Brasil", "Federative Republic of Brazil", "República Federativa do Brasil"],
+        "region": "Americas",
+        "subregion": "South America",
+        "population": 206135893,
+        "latlng": [-10.0, -55.0],
+        "demonym": "Brazilian",
+        "area": 8515767.0,
+        "gini": 54.7,
+        "timezones": ["UTC-05:00", "UTC-04:00", "UTC-03:00", "UTC-02:00"],
+        "borders": ["ARG", "BOL", "COL", "GUF", "GUY", "PRY", "PER", "SUR", "URY", "VEN"],
+        "nativeName": "Brasil",
+        "numericCode": "076",
+        "currencies": [{ "code": "BRL", "name": "Brazilian real", "symbol": "R$" }],
+        "languages": [{ "iso639_1": "pt", "iso639_2": "por", "name": "Portuguese", "nativeName": "Português" }],
+        "translations": { "de": "Brasilien", "es": "Brasil", "fr": "Brésil", "ja": "ブラジル", "it": "Brasile", "br": "Brasil", "pt": "Brasil", "nl": "Brazilië", "hr": "Brazil", "fa": "برزیل" },
+        "flag": "https://restcountries.eu/data/bra.svg",
+        "regionalBlocs": [{ "acronym": "USAN", "name": "Union of South American Nations", "otherAcronyms": ["UNASUR", "UNASUL", "UZAN"], "otherNames": ["Unión de Naciones Suramericanas", "União de Nações Sul-Americanas", "Unie van Zuid-Amerikaanse Naties", "South American Union"] }],
+        "cioc": "BRA"
+    }, {
+        "name": "British Indian Ocean Territory",
+        "topLevelDomain": [".io"],
+        "alpha2Code": "IO",
+        "alpha3Code": "IOT",
+        "callingCodes": ["246"],
+        "capital": "Diego Garcia",
+        "altSpellings": ["IO"],
+        "region": "Africa",
+        "subregion": "Eastern Africa",
+        "population": 3000,
+        "latlng": [-6.0, 71.5],
+        "demonym": "Indian",
+        "area": 60.0,
+        "gini": null,
+        "timezones": ["UTC+06:00"],
+        "borders": [],
+        "nativeName": "British Indian Ocean Territory",
+        "numericCode": "086",
+        "currencies": [{ "code": "USD", "name": "United States dollar", "symbol": "$" }],
+        "languages": [{ "iso639_1": "en", "iso639_2": "eng", "name": "English", "nativeName": "English" }],
+        "translations": { "de": "Britisches Territorium im Indischen Ozean", "es": "Territorio Británico del Océano Índico", "fr": "Territoire britannique de l'océan Indien", "ja": "イギリス領インド洋地域", "it": "Territorio britannico dell'oceano indiano", "br": "Território Britânico do Oceano íÍdico", "pt": "Território Britânico do Oceano Índico", "nl": "Britse Gebieden in de Indische Oceaan", "hr": "Britanski Indijskooceanski teritorij", "fa": "قلمرو بریتانیا در اقیانوس هند" },
+        "flag": "https://restcountries.eu/data/iot.svg",
+        "regionalBlocs": [{ "acronym": "AU", "name": "African Union", "otherAcronyms": [], "otherNames": ["الاتحاد الأفريقي", "Union africaine", "União Africana", "Unión Africana", "Umoja wa Afrika"] }],
+        "cioc": ""
+    }, {
+        "name": "United States Minor Outlying Islands",
+        "topLevelDomain": [".us"],
+        "alpha2Code": "UM",
+        "alpha3Code": "UMI",
+        "callingCodes": [""],
+        "capital": "",
+        "altSpellings": ["UM"],
+        "region": "Americas",
+        "subregion": "Northern America",
+        "population": 300,
+        "latlng": [],
+        "demonym": "American",
+        "area": null,
+        "gini": null,
+        "timezones": ["UTC-11:00", "UTC-10:00", "UTC+12:00"],
+        "borders": [],
+        "nativeName": "United States Minor Outlying Islands",
+        "numericCode": "581",
+        "currencies": [{ "code": "USD", "name": "United States Dollar", "symbol": "$" }],
+        "languages": [{ "iso639_1": "en", "iso639_2": "eng", "name": "English", "nativeName": "English" }],
+        "translations": { "de": "Kleinere Inselbesitzungen der Vereinigten Staaten", "es": "Islas Ultramarinas Menores de Estados Unidos", "fr": "Îles mineures éloignées des États-Unis", "ja": "合衆国領有小離島", "it": "Isole minori esterne degli Stati Uniti d'America", "br": "Ilhas Menores Distantes dos Estados Unidos", "pt": "Ilhas Menores Distantes dos Estados Unidos", "nl": "Kleine afgelegen eilanden van de Verenigde Staten", "hr": "Mali udaljeni otoci SAD-a", "fa": "جزایر کوچک حاشیه‌ای ایالات متحده آمریکا" },
+        "flag": "https://restcountries.eu/data/umi.svg",
+        "regionalBlocs": [],
+        "cioc": ""
+    }, {
+        "name": "Virgin Islands (British)",
+        "topLevelDomain": [".vg"],
+        "alpha2Code": "VG",
+        "alpha3Code": "VGB",
+        "callingCodes": ["1284"],
+        "capital": "Road Town",
+        "altSpellings": ["VG"],
+        "region": "Americas",
+        "subregion": "Caribbean",
+        "population": 28514,
+        "latlng": [18.431383, -64.62305],
+        "demonym": "Virgin Islander",
+        "area": 151.0,
+        "gini": null,
+        "timezones": ["UTC-04:00"],
+        "borders": [],
+        "nativeName": "British Virgin Islands",
+        "numericCode": "092",
+        "currencies": [{ "code": null, "name": "[D]", "symbol": "$" }, { "code": "USD", "name": "United States dollar", "symbol": "$" }],
+        "languages": [{ "iso639_1": "en", "iso639_2": "eng", "name": "English", "nativeName": "English" }],
+        "translations": { "de": "Britische Jungferninseln", "es": "Islas Vírgenes del Reino Unido", "fr": "Îles Vierges britanniques", "ja": "イギリス領ヴァージン諸島", "it": "Isole Vergini Britanniche", "br": "Ilhas Virgens Britânicas", "pt": "Ilhas Virgens Britânicas", "nl": "Britse Maagdeneilanden", "hr": "Britanski Djevičanski Otoci", "fa": "جزایر ویرجین بریتانیا" },
+        "flag": "https://restcountries.eu/data/vgb.svg",
+        "regionalBlocs": [],
+        "cioc": "IVB"
+    }, {
+        "name": "Virgin Islands (U.S.)",
+        "topLevelDomain": [".vi"],
+        "alpha2Code": "VI",
+        "alpha3Code": "VIR",
+        "callingCodes": ["1 340"],
+        "capital": "Charlotte Amalie",
+        "altSpellings": ["VI", "USVI", "American Virgin Islands", "U.S. Virgin Islands"],
+        "region": "Americas",
+        "subregion": "Caribbean",
+        "population": 114743,
+        "latlng": [18.34, -64.93],
+        "demonym": "Virgin Islander",
+        "area": 346.36,
+        "gini": null,
+        "timezones": ["UTC-04:00"],
+        "borders": [],
+        "nativeName": "Virgin Islands of the United States",
+        "numericCode": "850",
+        "currencies": [{ "code": "USD", "name": "United States dollar", "symbol": "$" }],
+        "languages": [{ "iso639_1": "en", "iso639_2": "eng", "name": "English", "nativeName": "English" }],
+        "translations": { "de": "Amerikanische Jungferninseln", "es": "Islas Vírgenes de los Estados Unidos", "fr": "Îles Vierges des États-Unis", "ja": "アメリカ領ヴァージン諸島", "it": "Isole Vergini americane", "br": "Ilhas Virgens Americanas", "pt": "Ilhas Virgens Americanas", "nl": "Verenigde Staten Maagdeneilanden", "hr": null, "fa": "جزایر ویرجین آمریکا" },
+        "flag": "https://restcountries.eu/data/vir.svg",
+        "regionalBlocs": [],
+        "cioc": "ISV"
+    }, {
+        "name": "Brunei Darussalam",
+        "topLevelDomain": [".bn"],
+        "alpha2Code": "BN",
+        "alpha3Code": "BRN",
+        "callingCodes": ["673"],
+        "capital": "Bandar Seri Begawan",
+        "altSpellings": ["BN", "Nation of Brunei", " the Abode of Peace"],
+        "region": "Asia",
+        "subregion": "South-Eastern Asia",
+        "population": 411900,
+        "latlng": [4.5, 114.66666666],
+        "demonym": "Bruneian",
+        "area": 5765.0,
+        "gini": null,
+        "timezones": ["UTC+08:00"],
+        "borders": ["MYS"],
+        "nativeName": "Negara Brunei Darussalam",
+        "numericCode": "096",
+        "currencies": [{ "code": "BND", "name": "Brunei dollar", "symbol": "$" }, { "code": "SGD", "name": "Singapore dollar", "symbol": "$" }],
+        "languages": [{ "iso639_1": "ms", "iso639_2": "msa", "name": "Malay", "nativeName": "bahasa Melayu" }],
+        "translations": { "de": "Brunei", "es": "Brunei", "fr": "Brunei", "ja": "ブルネイ・ダルサラーム", "it": "Brunei", "br": "Brunei", "pt": "Brunei", "nl": "Brunei", "hr": "Brunej", "fa": "برونئی" },
+        "flag": "https://restcountries.eu/data/brn.svg",
+        "regionalBlocs": [{ "acronym": "ASEAN", "name": "Association of Southeast Asian Nations", "otherAcronyms": [], "otherNames": [] }],
+        "cioc": "BRU"
+    }
+]
+
+
+    OUTPUT:-
+   
+
+    
+            flag:https://restcountries.eu/data/afg.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/ala.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/alb.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/dza.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/asm.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/and.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/ago.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/aia.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/ata.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/atg.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/arg.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/arm.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/abw.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/aus.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/aut.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/aze.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/bhs.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/bhr.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/bgd.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/brb.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/blr.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/bel.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/blz.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/ben.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/bmu.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/btn.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/bol.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/bes.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/bih.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/bwa.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/bvt.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/bra.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/iot.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/umi.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/vgb.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/vir.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/brn.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/bgr.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/bfa.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/bdi.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/khm.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/cmr.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/can.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/cpv.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/cym.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/caf.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/tcd.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/chl.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/chn.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/cxr.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/cck.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/col.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/com.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/cog.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/cod.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/cok.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/cri.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/hrv.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/cub.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/cuw.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/cyp.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/cze.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/dnk.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/dji.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/dma.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/dom.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/ecu.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/egy.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/slv.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/gnq.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/eri.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/est.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/eth.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/flk.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/fro.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/fji.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/fin.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/fra.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/guf.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/pyf.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/atf.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/gab.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/gmb.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/geo.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/deu.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/gha.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/gib.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/grc.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/grl.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/grd.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/glp.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/gum.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/gtm.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/ggy.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/gin.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/gnb.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/guy.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/hti.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/hmd.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/vat.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/hnd.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/hkg.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/hun.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/isl.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/ind.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/idn.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/civ.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/irn.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/irq.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/irl.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/imn.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/isr.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/ita.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/jam.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/jpn.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/jey.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/jor.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/kaz.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/ken.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/kir.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/kwt.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/kgz.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/lao.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/lva.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/lbn.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/lso.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/lbr.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/lby.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/lie.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/ltu.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/lux.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/mac.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/mkd.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/mdg.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/mwi.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/mys.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/mdv.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/mli.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/mlt.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/mhl.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/mtq.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/mrt.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/mus.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/myt.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/mex.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/fsm.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/mda.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/mco.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/mng.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/mne.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/msr.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/mar.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/moz.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/mmr.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/nam.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/nru.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/npl.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/nld.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/ncl.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/nzl.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/nic.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/ner.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/nga.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/niu.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/nfk.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/prk.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/mnp.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/nor.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/omn.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/pak.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/plw.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/pse.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/pan.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/png.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/pry.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/per.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/phl.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/pcn.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/pol.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/prt.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/pri.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/qat.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/kos.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/reu.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/rou.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/rus.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/rwa.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/blm.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/shn.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/kna.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/lca.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/maf.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/spm.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/vct.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/wsm.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/smr.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/stp.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/sau.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/sen.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/srb.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/syc.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/sle.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/sgp.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/sxm.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/svk.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/svn.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/slb.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/som.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/zaf.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/sgs.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/kor.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/ssd.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/esp.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/lka.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/sdn.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/sur.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/sjm.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/swz.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/swe.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/che.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/syr.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/twn.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/tjk.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/tza.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/tha.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/tls.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/tgo.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/tkl.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/ton.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/tto.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/tun.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/tur.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/tkm.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/tca.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/tuv.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/uga.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/ukr.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/are.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/gbr.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/usa.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/ury.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/uzb.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/vut.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/ven.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/vnm.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/wlf.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/esh.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/yem.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/zmb.svg
+
+            
+            
+                
+                
+                
+                
+                
+script.js:19 
+            flag:https://restcountries.eu/data/zwe.svg
+
+            
+            
+
+3
+Q) Use the same rest countries and print all countries name, region, sub region and population
+
+
+   Code:-
+  
+   var xhr = new XMLHttpRequest();
+xhr.open("GET", "https://raw.githubusercontent.com/rvsp/restcountries-json-data/master/res-countries.json");
+
+xhr.send();
+
+//add a listener to process the request
+xhr.onload = function() {
+    //process the request and server will return the data
+    if (xhr.status >= 200 && xhr.status < 300) {
+        //conver the data raw data to js notation
+        var data = JSON.parse(xhr.response);
+        // console.log(data);
+
+        //Looping through the data
+        for (var i = 0; i < data.length; i++) {
+            var user = data[i];
+            console.log(`
+            name:${data[i].name}
+            region:${data[i].region}
+           subregion:${data[i].subregion}
+           population:${data[i].population}
+                `);
+        }
+    } else {
+        //If there is any error due to api enpoint or server problem
+        // then we will use this else for printing the error
+        console.log("Data is not available");
+    }
+};
+let obj = [{
+        "name": "Afghanistan",
+        "topLevelDomain": [".af"],
+        "alpha2Code": "AF",
+        "alpha3Code": "AFG",
+        "callingCodes": ["93"],
+        "capital": "Kabul",
+        "altSpellings": ["AF", "Afġānistān"],
+        "region": "Asia",
+        "subregion": "Southern Asia",
+        "population": 27657145,
+        "latlng": [33.0, 65.0],
+        "demonym": "Afghan",
+        "area": 652230.0,
+        "gini": 27.8,
+        "timezones": ["UTC+04:30"],
+        "borders": ["IRN", "PAK", "TKM", "UZB", "TJK", "CHN"],
+        "nativeName": "افغانستان",
+        "numericCode": "004",
+        "currencies": [{
+            "code": "AFN",
+            "name": "Afghan afghani",
+            "symbol": "؋"
+        }],
+        "languages": [{
+            "iso639_1": "ps",
+            "iso639_2": "pus",
+            "name": "Pashto",
+            "nativeName": "پښتو"
+        }, {
+            "iso639_1": "uz",
+            "iso639_2": "uzb",
+            "name": "Uzbek",
+            "nativeName": "Oʻzbek"
+        }, {
+            "iso639_1": "tk",
+            "iso639_2": "tuk",
+            "name": "Turkmen",
+            "nativeName": "Türkmen"
+        }],
+        "translations": {
+            "de": "Afghanistan",
+            "es": "Afganistán",
+            "fr": "Afghanistan",
+            "ja": "アフガニスタン",
+            "it": "Afghanistan",
+            "br": "Afeganistão",
+            "pt": "Afeganistão",
+            "nl": "Afghanistan",
+            "hr": "Afganistan",
+            "fa": "افغانستان"
+        },
+        "flag": "https://restcountries.eu/data/afg.svg",
+        "regionalBlocs": [{
+            "acronym": "SAARC",
+            "name": "South Asian Association for Regional Cooperation",
+            "otherAcronyms": [],
+            "otherNames": []
+        }],
+        "cioc": "AFG"
+    }, {
+        "name": "Åland Islands",
+        "topLevelDomain": [".ax"],
+        "alpha2Code": "AX",
+        "alpha3Code": "ALA",
+        "callingCodes": ["358"],
+        "capital": "Mariehamn",
+        "altSpellings": ["AX", "Aaland", "Aland", "Ahvenanmaa"],
+        "region": "Europe",
+        "subregion": "Northern Europe",
+        "population": 28875,
+        "latlng": [60.116667, 19.9],
+        "demonym": "Ålandish",
+        "area": 1580.0,
+        "gini": null,
+        "timezones": ["UTC+02:00"],
+        "borders": [],
+        "nativeName": "Åland",
+        "numericCode": "248",
+        "currencies": [{ "code": "EUR", "name": "Euro", "symbol": "€" }],
+        "languages": [{ "iso639_1": "sv", "iso639_2": "swe", "name": "Swedish", "nativeName": "svenska" }],
+        "translations": { "de": "Åland", "es": "Alandia", "fr": "Åland", "ja": "オーランド諸島", "it": "Isole Aland", "br": "Ilhas de Aland", "pt": "Ilhas de Aland", "nl": "Ålandeilanden", "hr": "Ålandski otoci", "fa": "جزایر الند" },
+        "flag": "https://restcountries.eu/data/ala.svg",
+        "regionalBlocs": [{ "acronym": "EU", "name": "European Union", "otherAcronyms": [], "otherNames": [] }],
+        "cioc": ""
+    }, {
+        "name": "Albania",
+        "topLevelDomain": [".al"],
+        "alpha2Code": "AL",
+        "alpha3Code": "ALB",
+        "callingCodes": ["355"],
+        "capital": "Tirana",
+        "altSpellings": ["AL", "Shqipëri", "Shqipëria", "Shqipnia"],
+        "region": "Europe",
+        "subregion": "Southern Europe",
+        "population": 2886026,
+        "latlng": [41.0, 20.0],
+        "demonym": "Albanian",
+        "area": 28748.0,
+        "gini": 34.5,
+        "timezones": ["UTC+01:00"],
+        "borders": ["MNE", "GRC", "MKD", "KOS"],
+        "nativeName": "Shqipëria",
+        "numericCode": "008",
+        "currencies": [{ "code": "ALL", "name": "Albanian lek", "symbol": "L" }],
+        "languages": [{ "iso639_1": "sq", "iso639_2": "sqi", "name": "Albanian", "nativeName": "Shqip" }],
+        "translations": { "de": "Albanien", "es": "Albania", "fr": "Albanie", "ja": "アルバニア", "it": "Albania", "br": "Albânia", "pt": "Albânia", "nl": "Albanië", "hr": "Albanija", "fa": "آلبانی" },
+        "flag": "https://restcountries.eu/data/alb.svg",
+        "regionalBlocs": [{ "acronym": "CEFTA", "name": "Central European Free Trade Agreement", "otherAcronyms": [], "otherNames": [] }],
+        "cioc": "ALB"
+    }, {
+        "name": "Algeria",
+        "topLevelDomain": [".dz"],
+        "alpha2Code": "DZ",
+        "alpha3Code": "DZA",
+        "callingCodes": ["213"],
+        "capital": "Algiers",
+        "altSpellings": ["DZ", "Dzayer", "Algérie"],
+        "region": "Africa",
+        "subregion": "Northern Africa",
+        "population": 40400000,
+        "latlng": [28.0, 3.0],
+        "demonym": "Algerian",
+        "area": 2381741.0,
+        "gini": 35.3,
+        "timezones": ["UTC+01:00"],
+        "borders": ["TUN", "LBY", "NER", "ESH", "MRT", "MLI", "MAR"],
+        "nativeName": "الجزائر",
+        "numericCode": "012",
+        "currencies": [{ "code": "DZD", "name": "Algerian dinar", "symbol": "د.ج" }],
+        "languages": [{ "iso639_1": "ar", "iso639_2": "ara", "name": "Arabic", "nativeName": "العربية" }],
+        "translations": { "de": "Algerien", "es": "Argelia", "fr": "Algérie", "ja": "アルジェリア", "it": "Algeria", "br": "Argélia", "pt": "Argélia", "nl": "Algerije", "hr": "Alžir", "fa": "الجزایر" },
+        "flag": "https://restcountries.eu/data/dza.svg",
+        "regionalBlocs": [{ "acronym": "AU", "name": "African Union", "otherAcronyms": [], "otherNames": ["الاتحاد الأفريقي", "Union africaine", "União Africana", "Unión Africana", "Umoja wa Afrika"] }, { "acronym": "AL", "name": "Arab League", "otherAcronyms": [], "otherNames": ["جامعة الدول العربية", "Jāmiʻat ad-Duwal al-ʻArabīyah", "League of Arab States"] }],
+        "cioc": "ALG"
+    }, {
+        "name": "American Samoa",
+        "topLevelDomain": [".as"],
+        "alpha2Code": "AS",
+        "alpha3Code": "ASM",
+        "callingCodes": ["1684"],
+        "capital": "Pago Pago",
+        "altSpellings": ["AS", "Amerika Sāmoa", "Amelika Sāmoa", "Sāmoa Amelika"],
+        "region": "Oceania",
+        "subregion": "Polynesia",
+        "population": 57100,
+        "latlng": [-14.33333333, -170.0],
+        "demonym": "American Samoan",
+        "area": 199.0,
+        "gini": null,
+        "timezones": ["UTC-11:00"],
+        "borders": [],
+        "nativeName": "American Samoa",
+        "numericCode": "016",
+        "currencies": [{ "code": "USD", "name": "United State Dollar", "symbol": "$" }],
+        "languages": [{ "iso639_1": "en", "iso639_2": "eng", "name": "English", "nativeName": "English" }, { "iso639_1": "sm", "iso639_2": "smo", "name": "Samoan", "nativeName": "gagana fa'a Samoa" }],
+        "translations": { "de": "Amerikanisch-Samoa", "es": "Samoa Americana", "fr": "Samoa américaines", "ja": "アメリカ領サモア", "it": "Samoa Americane", "br": "Samoa Americana", "pt": "Samoa Americana", "nl": "Amerikaans Samoa", "hr": "Američka Samoa", "fa": "ساموآی آمریکا" },
+        "flag": "https://restcountries.eu/data/asm.svg",
+        "regionalBlocs": [],
+        "cioc": "ASA"
+    }, {
+        "name": "Andorra",
+        "topLevelDomain": [".ad"],
+        "alpha2Code": "AD",
+        "alpha3Code": "AND",
+        "callingCodes": ["376"],
+        "capital": "Andorra la Vella",
+        "altSpellings": ["AD", "Principality of Andorra", "Principat d'Andorra"],
+        "region": "Europe",
+        "subregion": "Southern Europe",
+        "population": 78014,
+        "latlng": [42.5, 1.5],
+        "demonym": "Andorran",
+        "area": 468.0,
+        "gini": null,
+        "timezones": ["UTC+01:00"],
+        "borders": ["FRA", "ESP"],
+        "nativeName": "Andorra",
+        "numericCode": "020",
+        "currencies": [{ "code": "EUR", "name": "Euro", "symbol": "€" }],
+        "languages": [{ "iso639_1": "ca", "iso639_2": "cat", "name": "Catalan", "nativeName": "català" }],
+        "translations": { "de": "Andorra", "es": "Andorra", "fr": "Andorre", "ja": "アンドラ", "it": "Andorra", "br": "Andorra", "pt": "Andorra", "nl": "Andorra", "hr": "Andora", "fa": "آندورا" },
+        "flag": "https://restcountries.eu/data/and.svg",
+        "regionalBlocs": [],
+        "cioc": "AND"
+    }, {
+        "name": "Angola",
+        "topLevelDomain": [".ao"],
+        "alpha2Code": "AO",
+        "alpha3Code": "AGO",
+        "callingCodes": ["244"],
+        "capital": "Luanda",
+        "altSpellings": ["AO", "República de Angola", "ʁɛpublika de an'ɡɔla"],
+        "region": "Africa",
+        "subregion": "Middle Africa",
+        "population": 25868000,
+        "latlng": [-12.5, 18.5],
+        "demonym": "Angolan",
+        "area": 1246700.0,
+        "gini": 58.6,
+        "timezones": ["UTC+01:00"],
+        "borders": ["COG", "COD", "ZMB", "NAM"],
+        "nativeName": "Angola",
+        "numericCode": "024",
+        "currencies": [{ "code": "AOA", "name": "Angolan kwanza", "symbol": "Kz" }],
+        "languages": [{ "iso639_1": "pt", "iso639_2": "por", "name": "Portuguese", "nativeName": "Português" }],
+        "translations": { "de": "Angola", "es": "Angola", "fr": "Angola", "ja": "アンゴラ", "it": "Angola", "br": "Angola", "pt": "Angola", "nl": "Angola", "hr": "Angola", "fa": "آنگولا" },
+        "flag": "https://restcountries.eu/data/ago.svg",
+        "regionalBlocs": [{ "acronym": "AU", "name": "African Union", "otherAcronyms": [], "otherNames": ["الاتحاد الأفريقي", "Union africaine", "União Africana", "Unión Africana", "Umoja wa Afrika"] }],
+        "cioc": "ANG"
+    }, {
+        "name": "Anguilla",
+        "topLevelDomain": [".ai"],
+        "alpha2Code": "AI",
+        "alpha3Code": "AIA",
+        "callingCodes": ["1264"],
+        "capital": "The Valley",
+        "altSpellings": ["AI"],
+        "region": "Americas",
+        "subregion": "Caribbean",
+        "population": 13452,
+        "latlng": [18.25, -63.16666666],
+        "demonym": "Anguillian",
+        "area": 91.0,
+        "gini": null,
+        "timezones": ["UTC-04:00"],
+        "borders": [],
+        "nativeName": "Anguilla",
+        "numericCode": "660",
+        "currencies": [{ "code": "XCD", "name": "East Caribbean dollar", "symbol": "$" }],
+        "languages": [{ "iso639_1": "en", "iso639_2": "eng", "name": "English", "nativeName": "English" }],
+        "translations": { "de": "Anguilla", "es": "Anguilla", "fr": "Anguilla", "ja": "アンギラ", "it": "Anguilla", "br": "Anguila", "pt": "Anguila", "nl": "Anguilla", "hr": "Angvila", "fa": "آنگویلا" },
+        "flag": "https://restcountries.eu/data/aia.svg",
+        "regionalBlocs": [],
+        "cioc": ""
+    }, {
+        "name": "Antarctica",
+        "topLevelDomain": [".aq"],
+        "alpha2Code": "AQ",
+        "alpha3Code": "ATA",
+        "callingCodes": ["672"],
+        "capital": "",
+        "altSpellings": [],
+        "region": "Polar",
+        "subregion": "",
+        "population": 1000,
+        "latlng": [-74.65, 4.48],
+        "demonym": "",
+        "area": 1.4E7,
+        "gini": null,
+        "timezones": ["UTC-03:00", "UTC+03:00", "UTC+05:00", "UTC+06:00", "UTC+07:00", "UTC+08:00", "UTC+10:00", "UTC+12:00"],
+        "borders": [],
+        "nativeName": "Antarctica",
+        "numericCode": "010",
+        "currencies": [{ "code": "AUD", "name": "Australian dollar", "symbol": "$" }, { "code": "GBP", "name": "British pound", "symbol": "£" }],
+        "languages": [{ "iso639_1": "en", "iso639_2": "eng", "name": "English", "nativeName": "English" }, { "iso639_1": "ru", "iso639_2": "rus", "name": "Russian", "nativeName": "Русский" }],
+        "translations": { "de": "Antarktika", "es": "Antártida", "fr": "Antarctique", "ja": "南極大陸", "it": "Antartide", "br": "Antártida", "pt": "Antárctida", "nl": "Antarctica", "hr": "Antarktika", "fa": "جنوبگان" },
+        "flag": "https://restcountries.eu/data/ata.svg",
+        "regionalBlocs": [],
+        "cioc": ""
+    }, {
+        "name": "Antigua and Barbuda",
+        "topLevelDomain": [".ag"],
+        "alpha2Code": "AG",
+        "alpha3Code": "ATG",
+        "callingCodes": ["1268"],
+        "capital": "Saint John's",
+        "altSpellings": ["AG"],
+        "region": "Americas",
+        "subregion": "Caribbean",
+        "population": 86295,
+        "latlng": [17.05, -61.8],
+        "demonym": "Antiguan, Barbudan",
+        "area": 442.0,
+        "gini": null,
+        "timezones": ["UTC-04:00"],
+        "borders": [],
+        "nativeName": "Antigua and Barbuda",
+        "numericCode": "028",
+        "currencies": [{ "code": "XCD", "name": "East Caribbean dollar", "symbol": "$" }],
+        "languages": [{ "iso639_1": "en", "iso639_2": "eng", "name": "English", "nativeName": "English" }],
+        "translations": { "de": "Antigua und Barbuda", "es": "Antigua y Barbuda", "fr": "Antigua-et-Barbuda", "ja": "アンティグア・バーブーダ", "it": "Antigua e Barbuda", "br": "Antígua e Barbuda", "pt": "Antígua e Barbuda", "nl": "Antigua en Barbuda", "hr": "Antigva i Barbuda", "fa": "آنتیگوا و باربودا" },
+        "flag": "https://restcountries.eu/data/atg.svg",
+        "regionalBlocs": [{ "acronym": "CARICOM", "name": "Caribbean Community", "otherAcronyms": [], "otherNames": ["Comunidad del Caribe", "Communauté Caribéenne", "Caribische Gemeenschap"] }],
+        "cioc": "ANT"
+    }, {
+        "name": "Argentina",
+        "topLevelDomain": [".ar"],
+        "alpha2Code": "AR",
+        "alpha3Code": "ARG",
+        "callingCodes": ["54"],
+        "capital": "Buenos Aires",
+        "altSpellings": ["AR", "Argentine Republic", "República Argentina"],
+        "region": "Americas",
+        "subregion": "South America",
+        "population": 43590400,
+        "latlng": [-34.0, -64.0],
+        "demonym": "Argentinean",
+        "area": 2780400.0,
+        "gini": 44.5,
+        "timezones": ["UTC-03:00"],
+        "borders": ["BOL", "BRA", "CHL", "PRY", "URY"],
+        "nativeName": "Argentina",
+        "numericCode": "032",
+        "currencies": [{ "code": "ARS", "name": "Argentine peso", "symbol": "$" }],
+        "languages": [{ "iso639_1": "es", "iso639_2": "spa", "name": "Spanish", "nativeName": "Español" }, { "iso639_1": "gn", "iso639_2": "grn", "name": "Guaraní", "nativeName": "Avañe'ẽ" }],
+        "translations": { "de": "Argentinien", "es": "Argentina", "fr": "Argentine", "ja": "アルゼンチン", "it": "Argentina", "br": "Argentina", "pt": "Argentina", "nl": "Argentinië", "hr": "Argentina", "fa": "آرژانتین" },
+        "flag": "https://restcountries.eu/data/arg.svg",
+        "regionalBlocs": [{ "acronym": "USAN", "name": "Union of South American Nations", "otherAcronyms": ["UNASUR", "UNASUL", "UZAN"], "otherNames": ["Unión de Naciones Suramericanas", "União de Nações Sul-Americanas", "Unie van Zuid-Amerikaanse Naties", "South American Union"] }],
+        "cioc": "ARG"
+    }, {
+        "name": "Armenia",
+        "topLevelDomain": [".am"],
+        "alpha2Code": "AM",
+        "alpha3Code": "ARM",
+        "callingCodes": ["374"],
+        "capital": "Yerevan",
+        "altSpellings": ["AM", "Hayastan", "Republic of Armenia", "Հայաստանի Հանրապետություն"],
+        "region": "Asia",
+        "subregion": "Western Asia",
+        "population": 2994400,
+        "latlng": [40.0, 45.0],
+        "demonym": "Armenian",
+        "area": 29743.0,
+        "gini": 30.9,
+        "timezones": ["UTC+04:00"],
+        "borders": ["AZE", "GEO", "IRN", "TUR"],
+        "nativeName": "Հայաստան",
+        "numericCode": "051",
+        "currencies": [{ "code": "AMD", "name": "Armenian dram", "symbol": null }],
+        "languages": [{ "iso639_1": "hy", "iso639_2": "hye", "name": "Armenian", "nativeName": "Հայերեն" }, { "iso639_1": "ru", "iso639_2": "rus", "name": "Russian", "nativeName": "Русский" }],
+        "translations": { "de": "Armenien", "es": "Armenia", "fr": "Arménie", "ja": "アルメニア", "it": "Armenia", "br": "Armênia", "pt": "Arménia", "nl": "Armenië", "hr": "Armenija", "fa": "ارمنستان" },
+        "flag": "https://restcountries.eu/data/arm.svg",
+        "regionalBlocs": [{ "acronym": "EEU", "name": "Eurasian Economic Union", "otherAcronyms": ["EAEU"], "otherNames": [] }],
+        "cioc": "ARM"
+    }, {
+        "name": "Aruba",
+        "topLevelDomain": [".aw"],
+        "alpha2Code": "AW",
+        "alpha3Code": "ABW",
+        "callingCodes": ["297"],
+        "capital": "Oranjestad",
+        "altSpellings": ["AW"],
+        "region": "Americas",
+        "subregion": "Caribbean",
+        "population": 107394,
+        "latlng": [12.5, -69.96666666],
+        "demonym": "Aruban",
+        "area": 180.0,
+        "gini": null,
+        "timezones": ["UTC-04:00"],
+        "borders": [],
+        "nativeName": "Aruba",
+        "numericCode": "533",
+        "currencies": [{ "code": "AWG", "name": "Aruban florin", "symbol": "ƒ" }],
+        "languages": [{ "iso639_1": "nl", "iso639_2": "nld", "name": "Dutch", "nativeName": "Nederlands" }, { "iso639_1": "pa", "iso639_2": "pan", "name": "(Eastern) Punjabi", "nativeName": "ਪੰਜਾਬੀ" }],
+        "translations": { "de": "Aruba", "es": "Aruba", "fr": "Aruba", "ja": "アルバ", "it": "Aruba", "br": "Aruba", "pt": "Aruba", "nl": "Aruba", "hr": "Aruba", "fa": "آروبا" },
+        "flag": "https://restcountries.eu/data/abw.svg",
+        "regionalBlocs": [],
+        "cioc": "ARU"
+    }, {
+        "name": "Australia",
+        "topLevelDomain": [".au"],
+        "alpha2Code": "AU",
+        "alpha3Code": "AUS",
+        "callingCodes": ["61"],
+        "capital": "Canberra",
+        "altSpellings": ["AU"],
+        "region": "Oceania",
+        "subregion": "Australia and New Zealand",
+        "population": 24117360,
+        "latlng": [-27.0, 133.0],
+        "demonym": "Australian",
+        "area": 7692024.0,
+        "gini": 30.5,
+        "timezones": ["UTC+05:00", "UTC+06:30", "UTC+07:00", "UTC+08:00", "UTC+09:30", "UTC+10:00", "UTC+10:30", "UTC+11:30"],
+        "borders": [],
+        "nativeName": "Australia",
+        "numericCode": "036",
+        "currencies": [{ "code": "AUD", "name": "Australian dollar", "symbol": "$" }],
+        "languages": [{ "iso639_1": "en", "iso639_2": "eng", "name": "English", "nativeName": "English" }],
+        "translations": { "de": "Australien", "es": "Australia", "fr": "Australie", "ja": "オーストラリア", "it": "Australia", "br": "Austrália", "pt": "Austrália", "nl": "Australië", "hr": "Australija", "fa": "استرالیا" },
+        "flag": "https://restcountries.eu/data/aus.svg",
+        "regionalBlocs": [],
+        "cioc": "AUS"
+    }, {
+        "name": "Austria",
+        "topLevelDomain": [".at"],
+        "alpha2Code": "AT",
+        "alpha3Code": "AUT",
+        "callingCodes": ["43"],
+        "capital": "Vienna",
+        "altSpellings": ["AT", "Österreich", "Osterreich", "Oesterreich"],
+        "region": "Europe",
+        "subregion": "Western Europe",
+        "population": 8725931,
+        "latlng": [47.33333333, 13.33333333],
+        "demonym": "Austrian",
+        "area": 83871.0,
+        "gini": 26.0,
+        "timezones": ["UTC+01:00"],
+        "borders": ["CZE", "DEU", "HUN", "ITA", "LIE", "SVK", "SVN", "CHE"],
+        "nativeName": "Österreich",
+        "numericCode": "040",
+        "currencies": [{ "code": "EUR", "name": "Euro", "symbol": "€" }],
+        "languages": [{ "iso639_1": "de", "iso639_2": "deu", "name": "German", "nativeName": "Deutsch" }],
+        "translations": { "de": "Österreich", "es": "Austria", "fr": "Autriche", "ja": "オーストリア", "it": "Austria", "br": "áustria", "pt": "áustria", "nl": "Oostenrijk", "hr": "Austrija", "fa": "اتریش" },
+        "flag": "https://restcountries.eu/data/aut.svg",
+        "regionalBlocs": [{ "acronym": "EU", "name": "European Union", "otherAcronyms": [], "otherNames": [] }],
+        "cioc": "AUT"
+    },
+    {
+        "name": "Azerbaijan",
+        "topLevelDomain": [".az"],
+        "alpha2Code": "AZ",
+        "alpha3Code": "AZE",
+        "callingCodes": ["994"],
+        "capital": "Baku",
+        "altSpellings": ["AZ", "Republic of Azerbaijan", "Azərbaycan Respublikası"],
+        "region": "Asia",
+        "subregion": "Western Asia",
+        "population": 9730500,
+        "latlng": [40.5, 47.5],
+        "demonym": "Azerbaijani",
+        "area": 86600.0,
+        "gini": 33.7,
+        "timezones": ["UTC+04:00"],
+        "borders": ["ARM", "GEO", "IRN", "RUS", "TUR"],
+        "nativeName": "Azərbaycan",
+        "numericCode": "031",
+        "currencies": [{ "code": "AZN", "name": "Azerbaijani manat", "symbol": null }],
+        "languages": [{ "iso639_1": "az", "iso639_2": "aze", "name": "Azerbaijani", "nativeName": "azərbaycan dili" }],
+        "translations": { "de": "Aserbaidschan", "es": "Azerbaiyán", "fr": "Azerbaïdjan", "ja": "アゼルバイジャン", "it": "Azerbaijan", "br": "Azerbaijão", "pt": "Azerbaijão", "nl": "Azerbeidzjan", "hr": "Azerbajdžan", "fa": "آذربایجان" },
+        "flag": "https://restcountries.eu/data/aze.svg",
+        "regionalBlocs": [],
+        "cioc": "AZE"
+    }, {
+        "name": "Bahamas",
+        "topLevelDomain": [".bs"],
+        "alpha2Code": "BS",
+        "alpha3Code": "BHS",
+        "callingCodes": ["1242"],
+        "capital": "Nassau",
+        "altSpellings": ["BS", "Commonwealth of the Bahamas"],
+        "region": "Americas",
+        "subregion": "Caribbean",
+        "population": 378040,
+        "latlng": [24.25, -76.0],
+        "demonym": "Bahamian",
+        "area": 13943.0,
+        "gini": null,
+        "timezones": ["UTC-05:00"],
+        "borders": [],
+        "nativeName": "Bahamas",
+        "numericCode": "044",
+        "currencies": [{ "code": "BSD", "name": "Bahamian dollar", "symbol": "$" }],
+        "languages": [{ "iso639_1": "en", "iso639_2": "eng", "name": "English", "nativeName": "English" }],
+        "translations": { "de": "Bahamas", "es": "Bahamas", "fr": "Bahamas", "ja": "バハマ", "it": "Bahamas", "br": "Bahamas", "pt": "Baamas", "nl": "Bahama’s", "hr": "Bahami", "fa": "باهاما" },
+        "flag": "https://restcountries.eu/data/bhs.svg",
+        "regionalBlocs": [{ "acronym": "CARICOM", "name": "Caribbean Community", "otherAcronyms": [], "otherNames": ["Comunidad del Caribe", "Communauté Caribéenne", "Caribische Gemeenschap"] }],
+        "cioc": "BAH"
+    }, {
+        "name": "Bahrain",
+        "topLevelDomain": [".bh"],
+        "alpha2Code": "BH",
+        "alpha3Code": "BHR",
+        "callingCodes": ["973"],
+        "capital": "Manama",
+        "altSpellings": ["BH", "Kingdom of Bahrain", "Mamlakat al-Baḥrayn"],
+        "region": "Asia",
+        "subregion": "Western Asia",
+        "population": 1404900,
+        "latlng": [26.0, 50.55],
+        "demonym": "Bahraini",
+        "area": 765.0,
+        "gini": null,
+        "timezones": ["UTC+03:00"],
+        "borders": [],
+        "nativeName": "‏البحرين",
+        "numericCode": "048",
+        "currencies": [{ "code": "BHD", "name": "Bahraini dinar", "symbol": ".د.ب" }],
+        "languages": [{ "iso639_1": "ar", "iso639_2": "ara", "name": "Arabic", "nativeName": "العربية" }],
+        "translations": { "de": "Bahrain", "es": "Bahrein", "fr": "Bahreïn", "ja": "バーレーン", "it": "Bahrein", "br": "Bahrein", "pt": "Barém", "nl": "Bahrein", "hr": "Bahrein", "fa": "بحرین" },
+        "flag": "https://restcountries.eu/data/bhr.svg",
+        "regionalBlocs": [{ "acronym": "AL", "name": "Arab League", "otherAcronyms": [], "otherNames": ["جامعة الدول العربية", "Jāmiʻat ad-Duwal al-ʻArabīyah", "League of Arab States"] }],
+        "cioc": "BRN"
+    }, {
+        "name": "Bangladesh",
+        "topLevelDomain": [".bd"],
+        "alpha2Code": "BD",
+        "alpha3Code": "BGD",
+        "callingCodes": ["880"],
+        "capital": "Dhaka",
+        "altSpellings": ["BD", "People's Republic of Bangladesh", "Gônôprôjatôntri Bangladesh"],
+        "region": "Asia",
+        "subregion": "Southern Asia",
+        "population": 161006790,
+        "latlng": [24.0, 90.0],
+        "demonym": "Bangladeshi",
+        "area": 147570.0,
+        "gini": 32.1,
+        "timezones": ["UTC+06:00"],
+        "borders": ["MMR", "IND"],
+        "nativeName": "Bangladesh",
+        "numericCode": "050",
+        "currencies": [{ "code": "BDT", "name": "Bangladeshi taka", "symbol": "৳" }],
+        "languages": [{ "iso639_1": "bn", "iso639_2": "ben", "name": "Bengali", "nativeName": "বাংলা" }],
+        "translations": { "de": "Bangladesch", "es": "Bangladesh", "fr": "Bangladesh", "ja": "バングラデシュ", "it": "Bangladesh", "br": "Bangladesh", "pt": "Bangladeche", "nl": "Bangladesh", "hr": "Bangladeš", "fa": "بنگلادش" },
+        "flag": "https://restcountries.eu/data/bgd.svg",
+        "regionalBlocs": [{ "acronym": "SAARC", "name": "South Asian Association for Regional Cooperation", "otherAcronyms": [], "otherNames": [] }],
+        "cioc": "BAN"
+    }, {
+        "name": "Barbados",
+        "topLevelDomain": [".bb"],
+        "alpha2Code": "BB",
+        "alpha3Code": "BRB",
+        "callingCodes": ["1246"],
+        "capital": "Bridgetown",
+        "altSpellings": ["BB"],
+        "region": "Americas",
+        "subregion": "Caribbean",
+        "population": 285000,
+        "latlng": [13.16666666, -59.53333333],
+        "demonym": "Barbadian",
+        "area": 430.0,
+        "gini": null,
+        "timezones": ["UTC-04:00"],
+        "borders": [],
+        "nativeName": "Barbados",
+        "numericCode": "052",
+        "currencies": [{ "code": "BBD", "name": "Barbadian dollar", "symbol": "$" }],
+        "languages": [{ "iso639_1": "en", "iso639_2": "eng", "name": "English", "nativeName": "English" }],
+        "translations": { "de": "Barbados", "es": "Barbados", "fr": "Barbade", "ja": "バルバドス", "it": "Barbados", "br": "Barbados", "pt": "Barbados", "nl": "Barbados", "hr": "Barbados", "fa": "باربادوس" },
+        "flag": "https://restcountries.eu/data/brb.svg",
+        "regionalBlocs": [{ "acronym": "CARICOM", "name": "Caribbean Community", "otherAcronyms": [], "otherNames": ["Comunidad del Caribe", "Communauté Caribéenne", "Caribische Gemeenschap"] }],
+        "cioc": "BAR"
+    }, {
+        "name": "Belarus",
+        "topLevelDomain": [".by"],
+        "alpha2Code": "BY",
+        "alpha3Code": "BLR",
+        "callingCodes": ["375"],
+        "capital": "Minsk",
+        "altSpellings": ["BY", "Bielaruś", "Republic of Belarus", "Белоруссия", "Республика Беларусь", "Belorussiya", "Respublika Belarus’"],
+        "region": "Europe",
+        "subregion": "Eastern Europe",
+        "population": 9498700,
+        "latlng": [53.0, 28.0],
+        "demonym": "Belarusian",
+        "area": 207600.0,
+        "gini": 26.5,
+        "timezones": ["UTC+03:00"],
+        "borders": ["LVA", "LTU", "POL", "RUS", "UKR"],
+        "nativeName": "Белару́сь",
+        "numericCode": "112",
+        "currencies": [{ "code": "BYN", "name": "New Belarusian ruble", "symbol": "Br" }, { "code": "BYR", "name": "Old Belarusian ruble", "symbol": "Br" }],
+        "languages": [{ "iso639_1": "be", "iso639_2": "bel", "name": "Belarusian", "nativeName": "беларуская мова" }, { "iso639_1": "ru", "iso639_2": "rus", "name": "Russian", "nativeName": "Русский" }],
+        "translations": { "de": "Weißrussland", "es": "Bielorrusia", "fr": "Biélorussie", "ja": "ベラルーシ", "it": "Bielorussia", "br": "Bielorrússia", "pt": "Bielorrússia", "nl": "Wit-Rusland", "hr": "Bjelorusija", "fa": "بلاروس" },
+        "flag": "https://restcountries.eu/data/blr.svg",
+        "regionalBlocs": [{ "acronym": "EEU", "name": "Eurasian Economic Union", "otherAcronyms": ["EAEU"], "otherNames": [] }],
+        "cioc": "BLR"
+    }, {
+        "name": "Belgium",
+        "topLevelDomain": [".be"],
+        "alpha2Code": "BE",
+        "alpha3Code": "BEL",
+        "callingCodes": ["32"],
+        "capital": "Brussels",
+        "altSpellings": ["BE", "België", "Belgie", "Belgien", "Belgique", "Kingdom of Belgium", "Koninkrijk België", "Royaume de Belgique", "Königreich Belgien"],
+        "region": "Europe",
+        "subregion": "Western Europe",
+        "population": 11319511,
+        "latlng": [50.83333333, 4.0],
+        "demonym": "Belgian",
+        "area": 30528.0,
+        "gini": 33.0,
+        "timezones": ["UTC+01:00"],
+        "borders": ["FRA", "DEU", "LUX", "NLD"],
+        "nativeName": "België",
+        "numericCode": "056",
+        "currencies": [{ "code": "EUR", "name": "Euro", "symbol": "€" }],
+        "languages": [{ "iso639_1": "nl", "iso639_2": "nld", "name": "Dutch", "nativeName": "Nederlands" }, { "iso639_1": "fr", "iso639_2": "fra", "name": "French", "nativeName": "français" }, { "iso639_1": "de", "iso639_2": "deu", "name": "German", "nativeName": "Deutsch" }],
+        "translations": { "de": "Belgien", "es": "Bélgica", "fr": "Belgique", "ja": "ベルギー", "it": "Belgio", "br": "Bélgica", "pt": "Bélgica", "nl": "België", "hr": "Belgija", "fa": "بلژیک" },
+        "flag": "https://restcountries.eu/data/bel.svg",
+        "regionalBlocs": [{ "acronym": "EU", "name": "European Union", "otherAcronyms": [], "otherNames": [] }],
+        "cioc": "BEL"
+    }, {
+        "name": "Belize",
+        "topLevelDomain": [".bz"],
+        "alpha2Code": "BZ",
+        "alpha3Code": "BLZ",
+        "callingCodes": ["501"],
+        "capital": "Belmopan",
+        "altSpellings": ["BZ"],
+        "region": "Americas",
+        "subregion": "Central America",
+        "population": 370300,
+        "latlng": [17.25, -88.75],
+        "demonym": "Belizean",
+        "area": 22966.0,
+        "gini": 53.1,
+        "timezones": ["UTC-06:00"],
+        "borders": ["GTM", "MEX"],
+        "nativeName": "Belize",
+        "numericCode": "084",
+        "currencies": [{ "code": "BZD", "name": "Belize dollar", "symbol": "$" }],
+        "languages": [{ "iso639_1": "en", "iso639_2": "eng", "name": "English", "nativeName": "English" }, { "iso639_1": "es", "iso639_2": "spa", "name": "Spanish", "nativeName": "Español" }],
+        "translations": { "de": "Belize", "es": "Belice", "fr": "Belize", "ja": "ベリーズ", "it": "Belize", "br": "Belize", "pt": "Belize", "nl": "Belize", "hr": "Belize", "fa": "بلیز" },
+        "flag": "https://restcountries.eu/data/blz.svg",
+        "regionalBlocs": [{ "acronym": "CARICOM", "name": "Caribbean Community", "otherAcronyms": [], "otherNames": ["Comunidad del Caribe", "Communauté Caribéenne", "Caribische Gemeenschap"] }, { "acronym": "CAIS", "name": "Central American Integration System", "otherAcronyms": ["SICA"], "otherNames": ["Sistema de la Integración Centroamericana,"] }],
+        "cioc": "BIZ"
+    }, {
+        "name": "Benin",
+        "topLevelDomain": [".bj"],
+        "alpha2Code": "BJ",
+        "alpha3Code": "BEN",
+        "callingCodes": ["229"],
+        "capital": "Porto-Novo",
+        "altSpellings": ["BJ", "Republic of Benin", "République du Bénin"],
+        "region": "Africa",
+        "subregion": "Western Africa",
+        "population": 10653654,
+        "latlng": [9.5, 2.25],
+        "demonym": "Beninese",
+        "area": 112622.0,
+        "gini": 38.6,
+        "timezones": ["UTC+01:00"],
+        "borders": ["BFA", "NER", "NGA", "TGO"],
+        "nativeName": "Bénin",
+        "numericCode": "204",
+        "currencies": [{ "code": "XOF", "name": "West African CFA franc", "symbol": "Fr" }],
+        "languages": [{ "iso639_1": "fr", "iso639_2": "fra", "name": "French", "nativeName": "français" }],
+        "translations": { "de": "Benin", "es": "Benín", "fr": "Bénin", "ja": "ベナン", "it": "Benin", "br": "Benin", "pt": "Benim", "nl": "Benin", "hr": "Benin", "fa": "بنین" },
+        "flag": "https://restcountries.eu/data/ben.svg",
+        "regionalBlocs": [{ "acronym": "AU", "name": "African Union", "otherAcronyms": [], "otherNames": ["الاتحاد الأفريقي", "Union africaine", "União Africana", "Unión Africana", "Umoja wa Afrika"] }],
+        "cioc": "BEN"
+    }, {
+        "name": "Bermuda",
+        "topLevelDomain": [".bm"],
+        "alpha2Code": "BM",
+        "alpha3Code": "BMU",
+        "callingCodes": ["1441"],
+        "capital": "Hamilton",
+        "altSpellings": ["BM", "The Islands of Bermuda", "The Bermudas", "Somers Isles"],
+        "region": "Americas",
+        "subregion": "Northern America",
+        "population": 61954,
+        "latlng": [32.33333333, -64.75],
+        "demonym": "Bermudian",
+        "area": 54.0,
+        "gini": null,
+        "timezones": ["UTC-04:00"],
+        "borders": [],
+        "nativeName": "Bermuda",
+        "numericCode": "060",
+        "currencies": [{ "code": "BMD", "name": "Bermudian dollar", "symbol": "$" }],
+        "languages": [{ "iso639_1": "en", "iso639_2": "eng", "name": "English", "nativeName": "English" }],
+        "translations": { "de": "Bermuda", "es": "Bermudas", "fr": "Bermudes", "ja": "バミューダ", "it": "Bermuda", "br": "Bermudas", "pt": "Bermudas", "nl": "Bermuda", "hr": "Bermudi", "fa": "برمودا" },
+        "flag": "https://restcountries.eu/data/bmu.svg",
+        "regionalBlocs": [],
+        "cioc": "BER"
+    }, {
+        "name": "Bhutan",
+        "topLevelDomain": [".bt"],
+        "alpha2Code": "BT",
+        "alpha3Code": "BTN",
+        "callingCodes": ["975"],
+        "capital": "Thimphu",
+        "altSpellings": ["BT", "Kingdom of Bhutan"],
+        "region": "Asia",
+        "subregion": "Southern Asia",
+        "population": 775620,
+        "latlng": [27.5, 90.5],
+        "demonym": "Bhutanese",
+        "area": 38394.0,
+        "gini": 38.1,
+        "timezones": ["UTC+06:00"],
+        "borders": ["CHN", "IND"],
+        "nativeName": "ʼbrug-yul",
+        "numericCode": "064",
+        "currencies": [{ "code": "BTN", "name": "Bhutanese ngultrum", "symbol": "Nu." }, { "code": "INR", "name": "Indian rupee", "symbol": "₹" }],
+        "languages": [{ "iso639_1": "dz", "iso639_2": "dzo", "name": "Dzongkha", "nativeName": "རྫོང་ཁ" }],
+        "translations": { "de": "Bhutan", "es": "Bután", "fr": "Bhoutan", "ja": "ブータン", "it": "Bhutan", "br": "Butão", "pt": "Butão", "nl": "Bhutan", "hr": "Butan", "fa": "بوتان" },
+        "flag": "https://restcountries.eu/data/btn.svg",
+        "regionalBlocs": [{ "acronym": "SAARC", "name": "South Asian Association for Regional Cooperation", "otherAcronyms": [], "otherNames": [] }],
+        "cioc": "BHU"
+    }, {
+        "name": "Bolivia (Plurinational State of)",
+        "topLevelDomain": [".bo"],
+        "alpha2Code": "BO",
+        "alpha3Code": "BOL",
+        "callingCodes": ["591"],
+        "capital": "Sucre",
+        "altSpellings": ["BO", "Buliwya", "Wuliwya", "Plurinational State of Bolivia", "Estado Plurinacional de Bolivia", "Buliwya Mamallaqta", "Wuliwya Suyu", "Tetã Volívia"],
+        "region": "Americas",
+        "subregion": "South America",
+        "population": 10985059,
+        "latlng": [-17.0, -65.0],
+        "demonym": "Bolivian",
+        "area": 1098581.0,
+        "gini": 56.3,
+        "timezones": ["UTC-04:00"],
+        "borders": ["ARG", "BRA", "CHL", "PRY", "PER"],
+        "nativeName": "Bolivia",
+        "numericCode": "068",
+        "currencies": [{ "code": "BOB", "name": "Bolivian boliviano", "symbol": "Bs." }],
+        "languages": [{ "iso639_1": "es", "iso639_2": "spa", "name": "Spanish", "nativeName": "Español" }, { "iso639_1": "ay", "iso639_2": "aym", "name": "Aymara", "nativeName": "aymar aru" }, { "iso639_1": "qu", "iso639_2": "que", "name": "Quechua", "nativeName": "Runa Simi" }],
+        "translations": { "de": "Bolivien", "es": "Bolivia", "fr": "Bolivie", "ja": "ボリビア多民族国", "it": "Bolivia", "br": "Bolívia", "pt": "Bolívia", "nl": "Bolivia", "hr": "Bolivija", "fa": "بولیوی" },
+        "flag": "https://restcountries.eu/data/bol.svg",
+        "regionalBlocs": [{ "acronym": "USAN", "name": "Union of South American Nations", "otherAcronyms": ["UNASUR", "UNASUL", "UZAN"], "otherNames": ["Unión de Naciones Suramericanas", "União de Nações Sul-Americanas", "Unie van Zuid-Amerikaanse Naties", "South American Union"] }],
+        "cioc": "BOL"
+    }, {
+        "name": "Bonaire, Sint Eustatius and Saba",
+        "topLevelDomain": [".an", ".nl"],
+        "alpha2Code": "BQ",
+        "alpha3Code": "BES",
+        "callingCodes": ["5997"],
+        "capital": "Kralendijk",
+        "altSpellings": ["BQ", "Boneiru"],
+        "region": "Americas",
+        "subregion": "Caribbean",
+        "population": 17408,
+        "latlng": [12.15, -68.266667],
+        "demonym": "Dutch",
+        "area": 294.0,
+        "gini": null,
+        "timezones": ["UTC-04:00"],
+        "borders": [],
+        "nativeName": "Bonaire",
+        "numericCode": "535",
+        "currencies": [{ "code": "USD", "name": "United States dollar", "symbol": "$" }],
+        "languages": [{ "iso639_1": "nl", "iso639_2": "nld", "name": "Dutch", "nativeName": "Nederlands" }],
+        "translations": { "de": "Bonaire, Sint Eustatius und Saba", "es": null, "fr": "Bonaire, Saint-Eustache et Saba", "ja": null, "it": "Bonaire, Saint-Eustache e Saba", "br": "Bonaire", "pt": "Bonaire", "nl": null, "hr": null, "fa": "بونیر" },
+        "flag": "https://restcountries.eu/data/bes.svg",
+        "regionalBlocs": [],
+        "cioc": null
+    }, {
+        "name": "Bosnia and Herzegovina",
+        "topLevelDomain": [".ba"],
+        "alpha2Code": "BA",
+        "alpha3Code": "BIH",
+        "callingCodes": ["387"],
+        "capital": "Sarajevo",
+        "altSpellings": ["BA", "Bosnia-Herzegovina", "Босна и Херцеговина"],
+        "region": "Europe",
+        "subregion": "Southern Europe",
+        "population": 3531159,
+        "latlng": [44.0, 18.0],
+        "demonym": "Bosnian, Herzegovinian",
+        "area": 51209.0,
+        "gini": 36.2,
+        "timezones": ["UTC+01:00"],
+        "borders": ["HRV", "MNE", "SRB"],
+        "nativeName": "Bosna i Hercegovina",
+        "numericCode": "070",
+        "currencies": [{ "code": "BAM", "name": "Bosnia and Herzegovina convertible mark", "symbol": null }],
+        "languages": [{ "iso639_1": "bs", "iso639_2": "bos", "name": "Bosnian", "nativeName": "bosanski jezik" }, { "iso639_1": "hr", "iso639_2": "hrv", "name": "Croatian", "nativeName": "hrvatski jezik" }, { "iso639_1": "sr", "iso639_2": "srp", "name": "Serbian", "nativeName": "српски језик" }],
+        "translations": { "de": "Bosnien und Herzegowina", "es": "Bosnia y Herzegovina", "fr": "Bosnie-Herzégovine", "ja": "ボスニア・ヘルツェゴビナ", "it": "Bosnia ed Erzegovina", "br": "Bósnia e Herzegovina", "pt": "Bósnia e Herzegovina", "nl": "Bosnië en Herzegovina", "hr": "Bosna i Hercegovina", "fa": "بوسنی و هرزگوین" },
+        "flag": "https://restcountries.eu/data/bih.svg",
+        "regionalBlocs": [{ "acronym": "CEFTA", "name": "Central European Free Trade Agreement", "otherAcronyms": [], "otherNames": [] }],
+        "cioc": "BIH"
+    }, {
+        "name": "Botswana",
+        "topLevelDomain": [".bw"],
+        "alpha2Code": "BW",
+        "alpha3Code": "BWA",
+        "callingCodes": ["267"],
+        "capital": "Gaborone",
+        "altSpellings": ["BW", "Republic of Botswana", "Lefatshe la Botswana"],
+        "region": "Africa",
+        "subregion": "Southern Africa",
+        "population": 2141206,
+        "latlng": [-22.0, 24.0],
+        "demonym": "Motswana",
+        "area": 582000.0,
+        "gini": 61.0,
+        "timezones": ["UTC+02:00"],
+        "borders": ["NAM", "ZAF", "ZMB", "ZWE"],
+        "nativeName": "Botswana",
+        "numericCode": "072",
+        "currencies": [{ "code": "BWP", "name": "Botswana pula", "symbol": "P" }],
+        "languages": [{ "iso639_1": "en", "iso639_2": "eng", "name": "English", "nativeName": "English" }, { "iso639_1": "tn", "iso639_2": "tsn", "name": "Tswana", "nativeName": "Setswana" }],
+        "translations": { "de": "Botswana", "es": "Botswana", "fr": "Botswana", "ja": "ボツワナ", "it": "Botswana", "br": "Botsuana", "pt": "Botsuana", "nl": "Botswana", "hr": "Bocvana", "fa": "بوتسوانا" },
+        "flag": "https://restcountries.eu/data/bwa.svg",
+        "regionalBlocs": [{ "acronym": "AU", "name": "African Union", "otherAcronyms": [], "otherNames": ["الاتحاد الأفريقي", "Union africaine", "União Africana", "Unión Africana", "Umoja wa Afrika"] }],
+        "cioc": "BOT"
+    }, {
+        "name": "Bouvet Island",
+        "topLevelDomain": [".bv"],
+        "alpha2Code": "BV",
+        "alpha3Code": "BVT",
+        "callingCodes": [""],
+        "capital": "",
+        "altSpellings": ["BV", "Bouvetøya", "Bouvet-øya"],
+        "region": "",
+        "subregion": "",
+        "population": 0,
+        "latlng": [-54.43333333, 3.4],
+        "demonym": "",
+        "area": 49.0,
+        "gini": null,
+        "timezones": ["UTC+01:00"],
+        "borders": [],
+        "nativeName": "Bouvetøya",
+        "numericCode": "074",
+        "currencies": [{ "code": "NOK", "name": "Norwegian krone", "symbol": "kr" }],
+        "languages": [{ "iso639_1": "no", "iso639_2": "nor", "name": "Norwegian", "nativeName": "Norsk" }, { "iso639_1": "nb", "iso639_2": "nob", "name": "Norwegian Bokmål", "nativeName": "Norsk bokmål" }, { "iso639_1": "nn", "iso639_2": "nno", "name": "Norwegian Nynorsk", "nativeName": "Norsk nynorsk" }],
+        "translations": { "de": "Bouvetinsel", "es": "Isla Bouvet", "fr": "Île Bouvet", "ja": "ブーベ島", "it": "Isola Bouvet", "br": "Ilha Bouvet", "pt": "Ilha Bouvet", "nl": "Bouveteiland", "hr": "Otok Bouvet", "fa": "جزیره بووه" },
+        "flag": "https://restcountries.eu/data/bvt.svg",
+        "regionalBlocs": [],
+        "cioc": ""
+    }, {
+        "name": "Brazil",
+        "topLevelDomain": [".br"],
+        "alpha2Code": "BR",
+        "alpha3Code": "BRA",
+        "callingCodes": ["55"],
+        "capital": "Brasília",
+        "altSpellings": ["BR", "Brasil", "Federative Republic of Brazil", "República Federativa do Brasil"],
+        "region": "Americas",
+        "subregion": "South America",
+        "population": 206135893,
+        "latlng": [-10.0, -55.0],
+        "demonym": "Brazilian",
+        "area": 8515767.0,
+        "gini": 54.7,
+        "timezones": ["UTC-05:00", "UTC-04:00", "UTC-03:00", "UTC-02:00"],
+        "borders": ["ARG", "BOL", "COL", "GUF", "GUY", "PRY", "PER", "SUR", "URY", "VEN"],
+        "nativeName": "Brasil",
+        "numericCode": "076",
+        "currencies": [{ "code": "BRL", "name": "Brazilian real", "symbol": "R$" }],
+        "languages": [{ "iso639_1": "pt", "iso639_2": "por", "name": "Portuguese", "nativeName": "Português" }],
+        "translations": { "de": "Brasilien", "es": "Brasil", "fr": "Brésil", "ja": "ブラジル", "it": "Brasile", "br": "Brasil", "pt": "Brasil", "nl": "Brazilië", "hr": "Brazil", "fa": "برزیل" },
+        "flag": "https://restcountries.eu/data/bra.svg",
+        "regionalBlocs": [{ "acronym": "USAN", "name": "Union of South American Nations", "otherAcronyms": ["UNASUR", "UNASUL", "UZAN"], "otherNames": ["Unión de Naciones Suramericanas", "União de Nações Sul-Americanas", "Unie van Zuid-Amerikaanse Naties", "South American Union"] }],
+        "cioc": "BRA"
+    }, {
+        "name": "British Indian Ocean Territory",
+        "topLevelDomain": [".io"],
+        "alpha2Code": "IO",
+        "alpha3Code": "IOT",
+        "callingCodes": ["246"],
+        "capital": "Diego Garcia",
+        "altSpellings": ["IO"],
+        "region": "Africa",
+        "subregion": "Eastern Africa",
+        "population": 3000,
+        "latlng": [-6.0, 71.5],
+        "demonym": "Indian",
+        "area": 60.0,
+        "gini": null,
+        "timezones": ["UTC+06:00"],
+        "borders": [],
+        "nativeName": "British Indian Ocean Territory",
+        "numericCode": "086",
+        "currencies": [{ "code": "USD", "name": "United States dollar", "symbol": "$" }],
+        "languages": [{ "iso639_1": "en", "iso639_2": "eng", "name": "English", "nativeName": "English" }],
+        "translations": { "de": "Britisches Territorium im Indischen Ozean", "es": "Territorio Británico del Océano Índico", "fr": "Territoire britannique de l'océan Indien", "ja": "イギリス領インド洋地域", "it": "Territorio britannico dell'oceano indiano", "br": "Território Britânico do Oceano íÍdico", "pt": "Território Britânico do Oceano Índico", "nl": "Britse Gebieden in de Indische Oceaan", "hr": "Britanski Indijskooceanski teritorij", "fa": "قلمرو بریتانیا در اقیانوس هند" },
+        "flag": "https://restcountries.eu/data/iot.svg",
+        "regionalBlocs": [{ "acronym": "AU", "name": "African Union", "otherAcronyms": [], "otherNames": ["الاتحاد الأفريقي", "Union africaine", "União Africana", "Unión Africana", "Umoja wa Afrika"] }],
+        "cioc": ""
+    }, {
+        "name": "United States Minor Outlying Islands",
+        "topLevelDomain": [".us"],
+        "alpha2Code": "UM",
+        "alpha3Code": "UMI",
+        "callingCodes": [""],
+        "capital": "",
+        "altSpellings": ["UM"],
+        "region": "Americas",
+        "subregion": "Northern America",
+        "population": 300,
+        "latlng": [],
+        "demonym": "American",
+        "area": null,
+        "gini": null,
+        "timezones": ["UTC-11:00", "UTC-10:00", "UTC+12:00"],
+        "borders": [],
+        "nativeName": "United States Minor Outlying Islands",
+        "numericCode": "581",
+        "currencies": [{ "code": "USD", "name": "United States Dollar", "symbol": "$" }],
+        "languages": [{ "iso639_1": "en", "iso639_2": "eng", "name": "English", "nativeName": "English" }],
+        "translations": { "de": "Kleinere Inselbesitzungen der Vereinigten Staaten", "es": "Islas Ultramarinas Menores de Estados Unidos", "fr": "Îles mineures éloignées des États-Unis", "ja": "合衆国領有小離島", "it": "Isole minori esterne degli Stati Uniti d'America", "br": "Ilhas Menores Distantes dos Estados Unidos", "pt": "Ilhas Menores Distantes dos Estados Unidos", "nl": "Kleine afgelegen eilanden van de Verenigde Staten", "hr": "Mali udaljeni otoci SAD-a", "fa": "جزایر کوچک حاشیه‌ای ایالات متحده آمریکا" },
+        "flag": "https://restcountries.eu/data/umi.svg",
+        "regionalBlocs": [],
+        "cioc": ""
+    }, {
+        "name": "Virgin Islands (British)",
+        "topLevelDomain": [".vg"],
+        "alpha2Code": "VG",
+        "alpha3Code": "VGB",
+        "callingCodes": ["1284"],
+        "capital": "Road Town",
+        "altSpellings": ["VG"],
+        "region": "Americas",
+        "subregion": "Caribbean",
+        "population": 28514,
+        "latlng": [18.431383, -64.62305],
+        "demonym": "Virgin Islander",
+        "area": 151.0,
+        "gini": null,
+        "timezones": ["UTC-04:00"],
+        "borders": [],
+        "nativeName": "British Virgin Islands",
+        "numericCode": "092",
+        "currencies": [{ "code": null, "name": "[D]", "symbol": "$" }, { "code": "USD", "name": "United States dollar", "symbol": "$" }],
+        "languages": [{ "iso639_1": "en", "iso639_2": "eng", "name": "English", "nativeName": "English" }],
+        "translations": { "de": "Britische Jungferninseln", "es": "Islas Vírgenes del Reino Unido", "fr": "Îles Vierges britanniques", "ja": "イギリス領ヴァージン諸島", "it": "Isole Vergini Britanniche", "br": "Ilhas Virgens Britânicas", "pt": "Ilhas Virgens Britânicas", "nl": "Britse Maagdeneilanden", "hr": "Britanski Djevičanski Otoci", "fa": "جزایر ویرجین بریتانیا" },
+        "flag": "https://restcountries.eu/data/vgb.svg",
+        "regionalBlocs": [],
+        "cioc": "IVB"
+    }, {
+        "name": "Virgin Islands (U.S.)",
+        "topLevelDomain": [".vi"],
+        "alpha2Code": "VI",
+        "alpha3Code": "VIR",
+        "callingCodes": ["1 340"],
+        "capital": "Charlotte Amalie",
+        "altSpellings": ["VI", "USVI", "American Virgin Islands", "U.S. Virgin Islands"],
+        "region": "Americas",
+        "subregion": "Caribbean",
+        "population": 114743,
+        "latlng": [18.34, -64.93],
+        "demonym": "Virgin Islander",
+        "area": 346.36,
+        "gini": null,
+        "timezones": ["UTC-04:00"],
+        "borders": [],
+        "nativeName": "Virgin Islands of the United States",
+        "numericCode": "850",
+        "currencies": [{ "code": "USD", "name": "United States dollar", "symbol": "$" }],
+        "languages": [{ "iso639_1": "en", "iso639_2": "eng", "name": "English", "nativeName": "English" }],
+        "translations": { "de": "Amerikanische Jungferninseln", "es": "Islas Vírgenes de los Estados Unidos", "fr": "Îles Vierges des États-Unis", "ja": "アメリカ領ヴァージン諸島", "it": "Isole Vergini americane", "br": "Ilhas Virgens Americanas", "pt": "Ilhas Virgens Americanas", "nl": "Verenigde Staten Maagdeneilanden", "hr": null, "fa": "جزایر ویرجین آمریکا" },
+        "flag": "https://restcountries.eu/data/vir.svg",
+        "regionalBlocs": [],
+        "cioc": "ISV"
+    }, {
+        "name": "Brunei Darussalam",
+        "topLevelDomain": [".bn"],
+        "alpha2Code": "BN",
+        "alpha3Code": "BRN",
+        "callingCodes": ["673"],
+        "capital": "Bandar Seri Begawan",
+        "altSpellings": ["BN", "Nation of Brunei", " the Abode of Peace"],
+        "region": "Asia",
+        "subregion": "South-Eastern Asia",
+        "population": 411900,
+        "latlng": [4.5, 114.66666666],
+        "demonym": "Bruneian",
+        "area": 5765.0,
+        "gini": null,
+        "timezones": ["UTC+08:00"],
+        "borders": ["MYS"],
+        "nativeName": "Negara Brunei Darussalam",
+        "numericCode": "096",
+        "currencies": [{ "code": "BND", "name": "Brunei dollar", "symbol": "$" }, { "code": "SGD", "name": "Singapore dollar", "symbol": "$" }],
+        "languages": [{ "iso639_1": "ms", "iso639_2": "msa", "name": "Malay", "nativeName": "bahasa Melayu" }],
+        "translations": { "de": "Brunei", "es": "Brunei", "fr": "Brunei", "ja": "ブルネイ・ダルサラーム", "it": "Brunei", "br": "Brunei", "pt": "Brunei", "nl": "Brunei", "hr": "Brunej", "fa": "برونئی" },
+        "flag": "https://restcountries.eu/data/brn.svg",
+        "regionalBlocs": [{ "acronym": "ASEAN", "name": "Association of Southeast Asian Nations", "otherAcronyms": [], "otherNames": [] }],
+        "cioc": "BRU"
+    }
+]
+
+
+
+  OUTPUT:-
+
+     name:Afghanistan
+            region:Asia
+           subregion:Southern Asia
+           population:27657145
+                
+script.js:19 
+            name:Åland Islands
+            region:Europe
+           subregion:Northern Europe
+           population:28875
+                
+script.js:19 
+            name:Albania
+            region:Europe
+           subregion:Southern Europe
+           population:2886026
+                
+script.js:19 
+            name:Algeria
+            region:Africa
+           subregion:Northern Africa
+           population:40400000
+                
+script.js:19 
+            name:American Samoa
+            region:Oceania
+           subregion:Polynesia
+           population:57100
+                
+script.js:19 
+            name:Andorra
+            region:Europe
+           subregion:Southern Europe
+           population:78014
+                
+script.js:19 
+            name:Angola
+            region:Africa
+           subregion:Middle Africa
+           population:25868000
+                
+script.js:19 
+            name:Anguilla
+            region:Americas
+           subregion:Caribbean
+           population:13452
+                
+script.js:19 
+            name:Antarctica
+            region:Polar
+           subregion:
+           population:1000
+                
+script.js:19 
+            name:Antigua and Barbuda
+            region:Americas
+           subregion:Caribbean
+           population:86295
+                
+script.js:19 
+            name:Argentina
+            region:Americas
+           subregion:South America
+           population:43590400
+                
+script.js:19 
+            name:Armenia
+            region:Asia
+           subregion:Western Asia
+           population:2994400
+                
+script.js:19 
+            name:Aruba
+            region:Americas
+           subregion:Caribbean
+           population:107394
+                
+script.js:19 
+            name:Australia
+            region:Oceania
+           subregion:Australia and New Zealand
+           population:24117360
+                
+script.js:19 
+            name:Austria
+            region:Europe
+           subregion:Western Europe
+           population:8725931
+                
+script.js:19 
+            name:Azerbaijan
+            region:Asia
+           subregion:Western Asia
+           population:9730500
+                
+script.js:19 
+            name:Bahamas
+            region:Americas
+           subregion:Caribbean
+           population:378040
+                
+script.js:19 
+            name:Bahrain
+            region:Asia
+           subregion:Western Asia
+           population:1404900
+                
+script.js:19 
+            name:Bangladesh
+            region:Asia
+           subregion:Southern Asia
+           population:161006790
+                
+script.js:19 
+            name:Barbados
+            region:Americas
+           subregion:Caribbean
+           population:285000
+                
+script.js:19 
+            name:Belarus
+            region:Europe
+           subregion:Eastern Europe
+           population:9498700
+                
+script.js:19 
+            name:Belgium
+            region:Europe
+           subregion:Western Europe
+           population:11319511
+                
+script.js:19 
+            name:Belize
+            region:Americas
+           subregion:Central America
+           population:370300
+                
+script.js:19 
+            name:Benin
+            region:Africa
+           subregion:Western Africa
+           population:10653654
+                
+script.js:19 
+            name:Bermuda
+            region:Americas
+           subregion:Northern America
+           population:61954
+                
+script.js:19 
+            name:Bhutan
+            region:Asia
+           subregion:Southern Asia
+           population:775620
+                
+script.js:19 
+            name:Bolivia (Plurinational State of)
+            region:Americas
+           subregion:South America
+           population:10985059
+                
+script.js:19 
+            name:Bonaire, Sint Eustatius and Saba
+            region:Americas
+           subregion:Caribbean
+           population:17408
+                
+script.js:19 
+            name:Bosnia and Herzegovina
+            region:Europe
+           subregion:Southern Europe
+           population:3531159
+                
+script.js:19 
+            name:Botswana
+            region:Africa
+           subregion:Southern Africa
+           population:2141206
+                
+script.js:19 
+            name:Bouvet Island
+            region:
+           subregion:
+           population:0
+                
+script.js:19 
+            name:Brazil
+            region:Americas
+           subregion:South America
+           population:206135893
+                
+script.js:19 
+            name:British Indian Ocean Territory
+            region:Africa
+           subregion:Eastern Africa
+           population:3000
+                
+script.js:19 
+            name:United States Minor Outlying Islands
+            region:Americas
+           subregion:Northern America
+           population:300
+                
+script.js:19 
+            name:Virgin Islands (British)
+            region:Americas
+           subregion:Caribbean
+           population:28514
+                
+script.js:19 
+            name:Virgin Islands (U.S.)
+            region:Americas
+           subregion:Caribbean
+           population:114743
+                
+script.js:19 
+            name:Brunei Darussalam
+            region:Asia
+           subregion:South-Eastern Asia
+           population:411900
+                
+script.js:19 
+            name:Bulgaria
+            region:Europe
+           subregion:Eastern Europe
+           population:7153784
+                
+script.js:19 
+            name:Burkina Faso
+            region:Africa
+           subregion:Western Africa
+           population:19034397
+                
+script.js:19 
+            name:Burundi
+            region:Africa
+           subregion:Eastern Africa
+           population:10114505
+                
+script.js:19 
+            name:Cambodia
+            region:Asia
+           subregion:South-Eastern Asia
+           population:15626444
+                
+script.js:19 
+            name:Cameroon
+            region:Africa
+           subregion:Middle Africa
+           population:22709892
+                
+script.js:19 
+            name:Canada
+            region:Americas
+           subregion:Northern America
+           population:36155487
+                
+script.js:19 
+            name:Cabo Verde
+            region:Africa
+           subregion:Western Africa
+           population:531239
+                
+script.js:19 
+            name:Cayman Islands
+            region:Americas
+           subregion:Caribbean
+           population:58238
+                
+script.js:19 
+            name:Central African Republic
+            region:Africa
+           subregion:Middle Africa
+           population:4998000
+                
+script.js:19 
+            name:Chad
+            region:Africa
+           subregion:Middle Africa
+           population:14497000
+                
+script.js:19 
+            name:Chile
+            region:Americas
+           subregion:South America
+           population:18191900
+                
+script.js:19 
+            name:China
+            region:Asia
+           subregion:Eastern Asia
+           population:1377422166
+                
+script.js:19 
+            name:Christmas Island
+            region:Oceania
+           subregion:Australia and New Zealand
+           population:2072
+                
+script.js:19 
+            name:Cocos (Keeling) Islands
+            region:Oceania
+           subregion:Australia and New Zealand
+           population:550
+                
+script.js:19 
+            name:Colombia
+            region:Americas
+           subregion:South America
+           population:48759958
+                
+script.js:19 
+            name:Comoros
+            region:Africa
+           subregion:Eastern Africa
+           population:806153
+                
+script.js:19 
+            name:Congo
+            region:Africa
+           subregion:Middle Africa
+           population:4741000
+                
+script.js:19 
+            name:Congo (Democratic Republic of the)
+            region:Africa
+           subregion:Middle Africa
+           population:85026000
+                
+script.js:19 
+            name:Cook Islands
+            region:Oceania
+           subregion:Polynesia
+           population:18100
+                
+script.js:19 
+            name:Costa Rica
+            region:Americas
+           subregion:Central America
+           population:4890379
+                
+script.js:19 
+            name:Croatia
+            region:Europe
+           subregion:Southern Europe
+           population:4190669
+                
+script.js:19 
+            name:Cuba
+            region:Americas
+           subregion:Caribbean
+           population:11239004
+                
+script.js:19 
+            name:Curaçao
+            region:Americas
+           subregion:Caribbean
+           population:154843
+                
+script.js:19 
+            name:Cyprus
+            region:Europe
+           subregion:Southern Europe
+           population:847000
+                
+script.js:19 
+            name:Czech Republic
+            region:Europe
+           subregion:Eastern Europe
+           population:10558524
+                
+script.js:19 
+            name:Denmark
+            region:Europe
+           subregion:Northern Europe
+           population:5717014
+                
+script.js:19 
+            name:Djibouti
+            region:Africa
+           subregion:Eastern Africa
+           population:900000
+                
+script.js:19 
+            name:Dominica
+            region:Americas
+           subregion:Caribbean
+           population:71293
+                
+script.js:19 
+            name:Dominican Republic
+            region:Americas
+           subregion:Caribbean
+           population:10075045
+                
+script.js:19 
+            name:Ecuador
+            region:Americas
+           subregion:South America
+           population:16545799
+                
+script.js:19 
+            name:Egypt
+            region:Africa
+           subregion:Northern Africa
+           population:91290000
+                
+script.js:19 
+            name:El Salvador
+            region:Americas
+           subregion:Central America
+           population:6520675
+                
+script.js:19 
+            name:Equatorial Guinea
+            region:Africa
+           subregion:Middle Africa
+           population:1222442
+                
+script.js:19 
+            name:Eritrea
+            region:Africa
+           subregion:Eastern Africa
+           population:5352000
+                
+script.js:19 
+            name:Estonia
+            region:Europe
+           subregion:Northern Europe
+           population:1315944
+                
+script.js:19 
+            name:Ethiopia
+            region:Africa
+           subregion:Eastern Africa
+           population:92206005
+                
+script.js:19 
+            name:Falkland Islands (Malvinas)
+            region:Americas
+           subregion:South America
+           population:2563
+                
+script.js:19 
+            name:Faroe Islands
+            region:Europe
+           subregion:Northern Europe
+           population:49376
+                
+script.js:19 
+            name:Fiji
+            region:Oceania
+           subregion:Melanesia
+           population:867000
+                
+script.js:19 
+            name:Finland
+            region:Europe
+           subregion:Northern Europe
+           population:5491817
+                
+script.js:19 
+            name:France
+            region:Europe
+           subregion:Western Europe
+           population:66710000
+                
+script.js:19 
+            name:French Guiana
+            region:Americas
+           subregion:South America
+           population:254541
+                
+script.js:19 
+            name:French Polynesia
+            region:Oceania
+           subregion:Polynesia
+           population:271800
+                
+script.js:19 
+            name:French Southern Territories
+            region:Africa
+           subregion:Southern Africa
+           population:140
+                
+script.js:19 
+            name:Gabon
+            region:Africa
+           subregion:Middle Africa
+           population:1802278
+                
+script.js:19 
+            name:Gambia
+            region:Africa
+           subregion:Western Africa
+           population:1882450
+                
+script.js:19 
+            name:Georgia
+            region:Asia
+           subregion:Western Asia
+           population:3720400
+                
+script.js:19 
+            name:Germany
+            region:Europe
+           subregion:Western Europe
+           population:81770900
+                
+script.js:19 
+            name:Ghana
+            region:Africa
+           subregion:Western Africa
+           population:27670174
+                
+script.js:19 
+            name:Gibraltar
+            region:Europe
+           subregion:Southern Europe
+           population:33140
+                
+script.js:19 
+            name:Greece
+            region:Europe
+           subregion:Southern Europe
+           population:10858018
+                
+script.js:19 
+            name:Greenland
+            region:Americas
+           subregion:Northern America
+           population:55847
+                
+script.js:19 
+            name:Grenada
+            region:Americas
+           subregion:Caribbean
+           population:103328
+                
+script.js:19 
+            name:Guadeloupe
+            region:Americas
+           subregion:Caribbean
+           population:400132
+                
+script.js:19 
+            name:Guam
+            region:Oceania
+           subregion:Micronesia
+           population:184200
+                
+script.js:19 
+            name:Guatemala
+            region:Americas
+           subregion:Central America
+           population:16176133
+                
+script.js:19 
+            name:Guernsey
+            region:Europe
+           subregion:Northern Europe
+           population:62999
+                
+script.js:19 
+            name:Guinea
+            region:Africa
+           subregion:Western Africa
+           population:12947000
+                
+script.js:19 
+            name:Guinea-Bissau
+            region:Africa
+           subregion:Western Africa
+           population:1547777
+                
+script.js:19 
+            name:Guyana
+            region:Americas
+           subregion:South America
+           population:746900
+                
+script.js:19 
+            name:Haiti
+            region:Americas
+           subregion:Caribbean
+           population:11078033
+                
+script.js:19 
+            name:Heard Island and McDonald Islands
+            region:
+           subregion:
+           population:0
+                
+script.js:19 
+            name:Holy See
+            region:Europe
+           subregion:Southern Europe
+           population:451
+                
+script.js:19 
+            name:Honduras
+            region:Americas
+           subregion:Central America
+           population:8576532
+                
+script.js:19 
+            name:Hong Kong
+            region:Asia
+           subregion:Eastern Asia
+           population:7324300
+                
+script.js:19 
+            name:Hungary
+            region:Europe
+           subregion:Eastern Europe
+           population:9823000
+                
+script.js:19 
+            name:Iceland
+            region:Europe
+           subregion:Northern Europe
+           population:334300
+                
+script.js:19 
+            name:India
+            region:Asia
+           subregion:Southern Asia
+           population:1295210000
+                
+script.js:19 
+            name:Indonesia
+            region:Asia
+           subregion:South-Eastern Asia
+           population:258705000
+                
+script.js:19 
+            name:Côte d'Ivoire
+            region:Africa
+           subregion:Western Africa
+           population:22671331
+                
+script.js:19 
+            name:Iran (Islamic Republic of)
+            region:Asia
+           subregion:Southern Asia
+           population:79369900
+                
+script.js:19 
+            name:Iraq
+            region:Asia
+           subregion:Western Asia
+           population:37883543
+                
+script.js:19 
+            name:Ireland
+            region:Europe
+           subregion:Northern Europe
+           population:6378000
+                
+script.js:19 
+            name:Isle of Man
+            region:Europe
+           subregion:Northern Europe
+           population:84497
+                
+script.js:19 
+            name:Israel
+            region:Asia
+           subregion:Western Asia
+           population:8527400
+                
+script.js:19 
+            name:Italy
+            region:Europe
+           subregion:Southern Europe
+           population:60665551
+                
+script.js:19 
+            name:Jamaica
+            region:Americas
+           subregion:Caribbean
+           population:2723246
+                
+script.js:19 
+            name:Japan
+            region:Asia
+           subregion:Eastern Asia
+           population:126960000
+                
+script.js:19 
+            name:Jersey
+            region:Europe
+           subregion:Northern Europe
+           population:100800
+                
+script.js:19 
+            name:Jordan
+            region:Asia
+           subregion:Western Asia
+           population:9531712
+                
+script.js:19 
+            name:Kazakhstan
+            region:Asia
+           subregion:Central Asia
+           population:17753200
+                
+script.js:19 
+            name:Kenya
+            region:Africa
+           subregion:Eastern Africa
+           population:47251000
+                
+script.js:19 
+            name:Kiribati
+            region:Oceania
+           subregion:Micronesia
+           population:113400
+                
+script.js:19 
+            name:Kuwait
+            region:Asia
+           subregion:Western Asia
+           population:4183658
+                
+script.js:19 
+            name:Kyrgyzstan
+            region:Asia
+           subregion:Central Asia
+           population:6047800
+                
+script.js:19 
+            name:Lao People's Democratic Republic
+            region:Asia
+           subregion:South-Eastern Asia
+           population:6492400
+                
+script.js:19 
+            name:Latvia
+            region:Europe
+           subregion:Northern Europe
+           population:1961600
+                
+script.js:19 
+            name:Lebanon
+            region:Asia
+           subregion:Western Asia
+           population:5988000
+                
+script.js:19 
+            name:Lesotho
+            region:Africa
+           subregion:Southern Africa
+           population:1894194
+                
+script.js:19 
+            name:Liberia
+            region:Africa
+           subregion:Western Africa
+           population:4615000
+                
+script.js:19 
+            name:Libya
+            region:Africa
+           subregion:Northern Africa
+           population:6385000
+                
+script.js:19 
+            name:Liechtenstein
+            region:Europe
+           subregion:Western Europe
+           population:37623
+                
+script.js:19 
+            name:Lithuania
+            region:Europe
+           subregion:Northern Europe
+           population:2872294
+                
+script.js:19 
+            name:Luxembourg
+            region:Europe
+           subregion:Western Europe
+           population:576200
+                
+script.js:19 
+            name:Macao
+            region:Asia
+           subregion:Eastern Asia
+           population:649100
+                
+script.js:19 
+            name:Macedonia (the former Yugoslav Republic of)
+            region:Europe
+           subregion:Southern Europe
+           population:2058539
+                
+script.js:19 
+            name:Madagascar
+            region:Africa
+           subregion:Eastern Africa
+           population:22434363
+                
+script.js:19 
+            name:Malawi
+            region:Africa
+           subregion:Eastern Africa
+           population:16832910
+                
+script.js:19 
+            name:Malaysia
+            region:Asia
+           subregion:South-Eastern Asia
+           population:31405416
+                
+script.js:19 
+            name:Maldives
+            region:Asia
+           subregion:Southern Asia
+           population:344023
+                
+script.js:19 
+            name:Mali
+            region:Africa
+           subregion:Western Africa
+           population:18135000
+                
+script.js:19 
+            name:Malta
+            region:Europe
+           subregion:Southern Europe
+           population:425384
+                
+script.js:19 
+            name:Marshall Islands
+            region:Oceania
+           subregion:Micronesia
+           population:54880
+                
+script.js:19 
+            name:Martinique
+            region:Americas
+           subregion:Caribbean
+           population:378243
+                
+script.js:19 
+            name:Mauritania
+            region:Africa
+           subregion:Western Africa
+           population:3718678
+                
+script.js:19 
+            name:Mauritius
+            region:Africa
+           subregion:Eastern Africa
+           population:1262879
+                
+script.js:19 
+            name:Mayotte
+            region:Africa
+           subregion:Eastern Africa
+           population:226915
+                
+script.js:19 
+            name:Mexico
+            region:Americas
+           subregion:Central America
+           population:122273473
+                
+script.js:19 
+            name:Micronesia (Federated States of)
+            region:Oceania
+           subregion:Micronesia
+           population:102800
+                
+script.js:19 
+            name:Moldova (Republic of)
+            region:Europe
+           subregion:Eastern Europe
+           population:3553100
+                
+script.js:19 
+            name:Monaco
+            region:Europe
+           subregion:Western Europe
+           population:38400
+                
+script.js:19 
+            name:Mongolia
+            region:Asia
+           subregion:Eastern Asia
+           population:3093100
+                
+script.js:19 
+            name:Montenegro
+            region:Europe
+           subregion:Southern Europe
+           population:621810
+                
+script.js:19 
+            name:Montserrat
+            region:Americas
+           subregion:Caribbean
+           population:4922
+                
+script.js:19 
+            name:Morocco
+            region:Africa
+           subregion:Northern Africa
+           population:33337529
+                
+script.js:19 
+            name:Mozambique
+            region:Africa
+           subregion:Eastern Africa
+           population:26423700
+                
+script.js:19 
+            name:Myanmar
+            region:Asia
+           subregion:South-Eastern Asia
+           population:51419420
+                
+script.js:19 
+            name:Namibia
+            region:Africa
+           subregion:Southern Africa
+           population:2324388
+                
+script.js:19 
+            name:Nauru
+            region:Oceania
+           subregion:Micronesia
+           population:10084
+                
+script.js:19 
+            name:Nepal
+            region:Asia
+           subregion:Southern Asia
+           population:28431500
+                
+script.js:19 
+            name:Netherlands
+            region:Europe
+           subregion:Western Europe
+           population:17019800
+                
+script.js:19 
+            name:New Caledonia
+            region:Oceania
+           subregion:Melanesia
+           population:268767
+                
+script.js:19 
+            name:New Zealand
+            region:Oceania
+           subregion:Australia and New Zealand
+           population:4697854
+                
+script.js:19 
+            name:Nicaragua
+            region:Americas
+           subregion:Central America
+           population:6262703
+                
+script.js:19 
+            name:Niger
+            region:Africa
+           subregion:Western Africa
+           population:20715000
+                
+script.js:19 
+            name:Nigeria
+            region:Africa
+           subregion:Western Africa
+           population:186988000
+                
+script.js:19 
+            name:Niue
+            region:Oceania
+           subregion:Polynesia
+           population:1470
+                
+script.js:19 
+            name:Norfolk Island
+            region:Oceania
+           subregion:Australia and New Zealand
+           population:2302
+                
+script.js:19 
+            name:Korea (Democratic People's Republic of)
+            region:Asia
+           subregion:Eastern Asia
+           population:25281000
+                
+script.js:19 
+            name:Northern Mariana Islands
+            region:Oceania
+           subregion:Micronesia
+           population:56940
+                
+script.js:19 
+            name:Norway
+            region:Europe
+           subregion:Northern Europe
+           population:5223256
+                
+script.js:19 
+            name:Oman
+            region:Asia
+           subregion:Western Asia
+           population:4420133
+                
+script.js:19 
+            name:Pakistan
+            region:Asia
+           subregion:Southern Asia
+           population:194125062
+                
+script.js:19 
+            name:Palau
+            region:Oceania
+           subregion:Micronesia
+           population:17950
+                
+script.js:19 
+            name:Palestine, State of
+            region:Asia
+           subregion:Western Asia
+           population:4682467
+                
+script.js:19 
+            name:Panama
+            region:Americas
+           subregion:Central America
+           population:3814672
+                
+script.js:19 
+            name:Papua New Guinea
+            region:Oceania
+           subregion:Melanesia
+           population:8083700
+                
+script.js:19 
+            name:Paraguay
+            region:Americas
+           subregion:South America
+           population:6854536
+                
+script.js:19 
+            name:Peru
+            region:Americas
+           subregion:South America
+           population:31488700
+                
+script.js:19 
+            name:Philippines
+            region:Asia
+           subregion:South-Eastern Asia
+           population:103279800
+                
+script.js:19 
+            name:Pitcairn
+            region:Oceania
+           subregion:Polynesia
+           population:56
+                
+script.js:19 
+            name:Poland
+            region:Europe
+           subregion:Eastern Europe
+           population:38437239
+                
+script.js:19 
+            name:Portugal
+            region:Europe
+           subregion:Southern Europe
+           population:10374822
+                
+script.js:19 
+            name:Puerto Rico
+            region:Americas
+           subregion:Caribbean
+           population:3474182
+                
+script.js:19 
+            name:Qatar
+            region:Asia
+           subregion:Western Asia
+           population:2587564
+                
+script.js:19 
+            name:Republic of Kosovo
+            region:Europe
+           subregion:Eastern Europe
+           population:1733842
+                
+script.js:19 
+            name:Réunion
+            region:Africa
+           subregion:Eastern Africa
+           population:840974
+                
+script.js:19 
+            name:Romania
+            region:Europe
+           subregion:Eastern Europe
+           population:19861408
+                
+script.js:19 
+            name:Russian Federation
+            region:Europe
+           subregion:Eastern Europe
+           population:146599183
+                
+script.js:19 
+            name:Rwanda
+            region:Africa
+           subregion:Eastern Africa
+           population:11553188
+                
+script.js:19 
+            name:Saint Barthélemy
+            region:Americas
+           subregion:Caribbean
+           population:9417
+                
+script.js:19 
+            name:Saint Helena, Ascension and Tristan da Cunha
+            region:Africa
+           subregion:Western Africa
+           population:4255
+                
+script.js:19 
+            name:Saint Kitts and Nevis
+            region:Americas
+           subregion:Caribbean
+           population:46204
+                
+script.js:19 
+            name:Saint Lucia
+            region:Americas
+           subregion:Caribbean
+           population:186000
+                
+script.js:19 
+            name:Saint Martin (French part)
+            region:Americas
+           subregion:Caribbean
+           population:36979
+                
+script.js:19 
+            name:Saint Pierre and Miquelon
+            region:Americas
+           subregion:Northern America
+           population:6069
+                
+script.js:19 
+            name:Saint Vincent and the Grenadines
+            region:Americas
+           subregion:Caribbean
+           population:109991
+                
+script.js:19 
+            name:Samoa
+            region:Oceania
+           subregion:Polynesia
+           population:194899
+                
+script.js:19 
+            name:San Marino
+            region:Europe
+           subregion:Southern Europe
+           population:33005
+                
+script.js:19 
+            name:Sao Tome and Principe
+            region:Africa
+           subregion:Middle Africa
+           population:187356
+                
+script.js:19 
+            name:Saudi Arabia
+            region:Asia
+           subregion:Western Asia
+           population:32248200
+                
+script.js:19 
+            name:Senegal
+            region:Africa
+           subregion:Western Africa
+           population:14799859
+                
+script.js:19 
+            name:Serbia
+            region:Europe
+           subregion:Southern Europe
+           population:7076372
+                
+script.js:19 
+            name:Seychelles
+            region:Africa
+           subregion:Eastern Africa
+           population:91400
+                
+script.js:19 
+            name:Sierra Leone
+            region:Africa
+           subregion:Western Africa
+           population:7075641
+                
+script.js:19 
+            name:Singapore
+            region:Asia
+           subregion:South-Eastern Asia
+           population:5535000
+                
+script.js:19 
+            name:Sint Maarten (Dutch part)
+            region:Americas
+           subregion:Caribbean
+           population:38247
+                
+script.js:19 
+            name:Slovakia
+            region:Europe
+           subregion:Eastern Europe
+           population:5426252
+                
+script.js:19 
+            name:Slovenia
+            region:Europe
+           subregion:Southern Europe
+           population:2064188
+                
+script.js:19 
+            name:Solomon Islands
+            region:Oceania
+           subregion:Melanesia
+           population:642000
+                
+script.js:19 
+            name:Somalia
+            region:Africa
+           subregion:Eastern Africa
+           population:11079000
+                
+script.js:19 
+            name:South Africa
+            region:Africa
+           subregion:Southern Africa
+           population:55653654
+                
+script.js:19 
+            name:South Georgia and the South Sandwich Islands
+            region:Americas
+           subregion:South America
+           population:30
+                
+script.js:19 
+            name:Korea (Republic of)
+            region:Asia
+           subregion:Eastern Asia
+           population:50801405
+                
+script.js:19 
+            name:South Sudan
+            region:Africa
+           subregion:Middle Africa
+           population:12131000
+                
+script.js:19 
+            name:Spain
+            region:Europe
+           subregion:Southern Europe
+           population:46438422
+                
+script.js:19 
+            name:Sri Lanka
+            region:Asia
+           subregion:Southern Asia
+           population:20966000
+                
+script.js:19 
+            name:Sudan
+            region:Africa
+           subregion:Northern Africa
+           population:39598700
+                
+script.js:19 
+            name:Suriname
+            region:Americas
+           subregion:South America
+           population:541638
+                
+script.js:19 
+            name:Svalbard and Jan Mayen
+            region:Europe
+           subregion:Northern Europe
+           population:2562
+                
+script.js:19 
+            name:Swaziland
+            region:Africa
+           subregion:Southern Africa
+           population:1132657
+                
+script.js:19 
+            name:Sweden
+            region:Europe
+           subregion:Northern Europe
+           population:9894888
+                
+script.js:19 
+            name:Switzerland
+            region:Europe
+           subregion:Western Europe
+           population:8341600
+                
+script.js:19 
+            name:Syrian Arab Republic
+            region:Asia
+           subregion:Western Asia
+           population:18564000
+                
+script.js:19 
+            name:Taiwan
+            region:Asia
+           subregion:Eastern Asia
+           population:23503349
+                
+script.js:19 
+            name:Tajikistan
+            region:Asia
+           subregion:Central Asia
+           population:8593600
+                
+script.js:19 
+            name:Tanzania, United Republic of
+            region:Africa
+           subregion:Eastern Africa
+           population:55155000
+                
+script.js:19 
+            name:Thailand
+            region:Asia
+           subregion:South-Eastern Asia
+           population:65327652
+                
+script.js:19 
+            name:Timor-Leste
+            region:Asia
+           subregion:South-Eastern Asia
+           population:1167242
+                
+script.js:19 
+            name:Togo
+            region:Africa
+           subregion:Western Africa
+           population:7143000
+                
+script.js:19 
+            name:Tokelau
+            region:Oceania
+           subregion:Polynesia
+           population:1411
+                
+script.js:19 
+            name:Tonga
+            region:Oceania
+           subregion:Polynesia
+           population:103252
+                
+script.js:19 
+            name:Trinidad and Tobago
+            region:Americas
+           subregion:Caribbean
+           population:1349667
+                
+script.js:19 
+            name:Tunisia
+            region:Africa
+           subregion:Northern Africa
+           population:11154400
+                
+script.js:19 
+            name:Turkey
+            region:Asia
+           subregion:Western Asia
+           population:78741053
+                
+script.js:19 
+            name:Turkmenistan
+            region:Asia
+           subregion:Central Asia
+           population:4751120
+                
+script.js:19 
+            name:Turks and Caicos Islands
+            region:Americas
+           subregion:Caribbean
+           population:31458
+                
+script.js:19 
+            name:Tuvalu
+            region:Oceania
+           subregion:Polynesia
+           population:10640
+                
+script.js:19 
+            name:Uganda
+            region:Africa
+           subregion:Eastern Africa
+           population:33860700
+                
+script.js:19 
+            name:Ukraine
+            region:Europe
+           subregion:Eastern Europe
+           population:42692393
+                
+script.js:19 
+            name:United Arab Emirates
+            region:Asia
+           subregion:Western Asia
+           population:9856000
+                
+script.js:19 
+            name:United Kingdom of Great Britain and Northern Ireland
+            region:Europe
+           subregion:Northern Europe
+           population:65110000
+                
+script.js:19 
+            name:United States of America
+            region:Americas
+           subregion:Northern America
+           population:323947000
+                
+script.js:19 
+            name:Uruguay
+            region:Americas
+           subregion:South America
+           population:3480222
+                
+script.js:19 
+            name:Uzbekistan
+            region:Asia
+           subregion:Central Asia
+           population:31576400
+                
+script.js:19 
+            name:Vanuatu
+            region:Oceania
+           subregion:Melanesia
+           population:277500
+                
+script.js:19 
+            name:Venezuela (Bolivarian Republic of)
+            region:Americas
+           subregion:South America
+           population:31028700
+                
+script.js:19 
+            name:Viet Nam
+            region:Asia
+           subregion:South-Eastern Asia
+           population:92700000
+                
+script.js:19 
+            name:Wallis and Futuna
+            region:Oceania
+           subregion:Polynesia
+           population:11750
+                
+script.js:19 
+            name:Western Sahara
+            region:Africa
+           subregion:Northern Africa
+           population:510713
+                
+script.js:19 
+            name:Yemen
+            region:Asia
+           subregion:Western Asia
+           population:27478000
+                
+script.js:19 
+            name:Zambia
+            region:Africa
+           subregion:Eastern Africa
+           population:15933883
+                
+script.js:19 
+            name:Zimbabwe
+            region:Africa
+           subregion:Eastern Africa
+           population:14240168
+
+      
+
+
+
+
+
+
+
+
+
